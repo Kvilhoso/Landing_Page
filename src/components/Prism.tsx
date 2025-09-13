@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, type PropsWithChildren } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Renderer, Triangle, Program, Mesh } from 'ogl';
 
 type PrismProps = {
@@ -19,7 +19,7 @@ type PrismProps = {
   timeScale?: number;
 };
 
-const Prism: React.FC<PropsWithChildren<PrismProps>> = ({
+const Prism: React.FC<PrismProps> = ({
   height = 3.5,
   baseWidth = 5.5,
   animationType = 'rotate',
@@ -35,7 +35,6 @@ const Prism: React.FC<PropsWithChildren<PrismProps>> = ({
   bloom = 1,
   suspendWhenOffscreen = false,
   timeScale = 0.5,
-  children,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -477,11 +476,7 @@ const Prism: React.FC<PropsWithChildren<PrismProps>> = ({
     suspendWhenOffscreen,
   ]);
 
-  return (
-    <div className='w-full h-full relative' ref={containerRef}>
-      {children}
-    </div>
-  );
+  return <div className='w-full h-full relative' ref={containerRef} />;
 };
 
 export default Prism;
