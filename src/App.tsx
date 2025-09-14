@@ -24,6 +24,7 @@ function App() {
     enableBlur: true,
     baseOpacity: 0,
     blurStrength: 10,
+    baseRotation: 0,
     textClassName:
       'text-[clamp(1rem,3vw,2rem)] text-zinc-100 text-center font-montreal-thin',
   };
