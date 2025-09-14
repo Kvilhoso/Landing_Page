@@ -1,25 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, type FC } from 'react';
 import { Renderer, Triangle, Program, Mesh } from 'ogl';
+import type { PrismProps } from '@/@types';
 
-export type PrismProps = {
-  height?: number;
-  baseWidth?: number;
-  animationType?: 'rotate' | 'hover' | '3drotate';
-  glow?: number;
-  offset?: { x?: number; y?: number };
-  noise?: number;
-  transparent?: boolean;
-  scale?: number;
-  hueShift?: number;
-  colorFrequency?: number;
-  hoverStrength?: number;
-  inertia?: number;
-  bloom?: number;
-  suspendWhenOffscreen?: boolean;
-  timeScale?: number;
-};
-
-const Prism: React.FC<PrismProps> = ({
+export const Prism: FC<PrismProps> = ({
   height = 3.5,
   baseWidth = 5.5,
   animationType = 'rotate',
@@ -478,5 +461,3 @@ const Prism: React.FC<PrismProps> = ({
 
   return <div className='w-full h-full relative' ref={containerRef} />;
 };
-
-export default Prism;

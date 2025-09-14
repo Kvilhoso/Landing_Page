@@ -1,16 +1,13 @@
-import { useRef, useEffect, useState, type PropsWithChildren } from 'react';
+import {
+  useRef,
+  useEffect,
+  useState,
+  type PropsWithChildren,
+  type FC,
+} from 'react';
+import type { FadeContentProps } from '@/@types';
 
-export interface FadeContentProps {
-  blur?: boolean;
-  duration?: number;
-  easing?: string;
-  delay?: number;
-  threshold?: number;
-  initialOpacity?: number;
-  className?: string;
-}
-
-const FadeContent: React.FC<PropsWithChildren<FadeContentProps>> = ({
+export const FadeContent: FC<PropsWithChildren<FadeContentProps>> = ({
   children,
   blur = false,
   duration = 1000,
@@ -58,5 +55,3 @@ const FadeContent: React.FC<PropsWithChildren<FadeContentProps>> = ({
     </div>
   );
 };
-
-export default FadeContent;

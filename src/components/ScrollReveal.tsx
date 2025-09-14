@@ -1,28 +1,17 @@
-import React, {
+import {
   useEffect,
   useRef,
   useMemo,
-  type RefObject,
   type PropsWithChildren,
+  type FC,
 } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import type { ScrollRevealProps } from '@/@types';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export interface ScrollRevealProps {
-  scrollContainerRef?: RefObject<HTMLElement>;
-  enableBlur?: boolean;
-  baseOpacity?: number;
-  baseRotation?: number;
-  blurStrength?: number;
-  containerClassName?: string;
-  textClassName?: string;
-  rotationEnd?: string;
-  wordAnimationEnd?: string;
-}
-
-const ScrollReveal: React.FC<PropsWithChildren<ScrollRevealProps>> = ({
+export const ScrollReveal: FC<PropsWithChildren<ScrollRevealProps>> = ({
   children,
   scrollContainerRef,
   enableBlur = true,
@@ -132,5 +121,3 @@ const ScrollReveal: React.FC<PropsWithChildren<ScrollRevealProps>> = ({
     </h2>
   );
 };
-
-export default ScrollReveal;
