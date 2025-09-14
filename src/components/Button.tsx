@@ -5,7 +5,7 @@ import type { ButtonProps } from '@/@types';
 export const Button: FC<ButtonProps> = ({ text, className, ...rest }) => {
   return (
     <button
-      className={`group px-10 py-5 bg-zinc-100 rounded-full cursor-pointer drop-shadow-zinc-900 outline-zinc-100 transition delay-75 duration-200 ease-in-out hover:bg-zinc-200 hover:drop-shadow-lg active:ring-1 active:ring-zinc-400 active:drop-shadow-xl active:scale-95 ${className}`}
+      className={`group px-10 pt-5 pb-3 bg-zinc-100 rounded-full cursor-pointer drop-shadow-zinc-900 outline-zinc-100 transition delay-75 duration-200 ease-in-out hover:bg-zinc-200 hover:drop-shadow-lg active:ring-1 active:ring-zinc-400 active:drop-shadow-xl active:scale-95 ${className}`}
       {...rest}
     >
       <SplitText
@@ -18,7 +18,7 @@ export const Button: FC<ButtonProps> = ({ text, className, ...rest }) => {
         threshold={0.1}
         textAlign='center'
         text={text || ''}
-        className='text-xl text-zinc-900 font-extralight leading-6 group-hover:text-zinc-800 transition-colors duration-300'
+        className='text-xl text-zinc-500 font-montreal group-hover:text-zinc-600 transition-colors duration-300'
       />
     </button>
   );

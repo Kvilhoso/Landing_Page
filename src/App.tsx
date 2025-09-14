@@ -25,7 +25,7 @@ function App() {
     baseOpacity: 0,
     blurStrength: 10,
     textClassName:
-      'text-[clamp(1.25rem,3vw,2.125rem)] text-zinc-100 text-center font-extralight',
+      'text-[clamp(1.25rem,3vw,2.125rem)] text-zinc-100 text-center font-montreal-thin',
   };
 
   return (
@@ -55,14 +55,14 @@ function App() {
           <SplitText
             {...commonSplitTextProps}
             text='Revolucione suas finanças'
-            className='text-6xl text-center text-zinc-100 font-semibold leading-20'
+            className='text-6xl text-center text-zinc-100 font-montreal-bold leading-20'
             tag='h1'
           />
 
           <SplitText
             {...commonSplitTextProps}
             text='Desbloqueando barreiras financeiras'
-            className='text-4xl text-center text-zinc-100 font-semibold'
+            className='text-4xl text-center text-zinc-100 font-montreal-bold'
             tag='h2'
           />
 
@@ -83,14 +83,14 @@ function App() {
         </ScrollReveal>
 
         <ScrollReveal {...commonScrollRevealProps}>
-          As barreiras que antes impediam o acesso aos mercados financeiros
-          agora podem ser completamente eliminadas através do copy trading,
+          As barreiras que antes impediam o acesso ao mercado financeiro agora
+          podem ser completamente eliminadas através do copy trading,
           democratizando o investimento e tornando-o acessível a todos. Não
-          importa se você é iniciante ou se possui poucos recursos para começar
-          - esta estratégia remove os obstáculos do conhecimento técnico
-          complexo e do tempo necessário para análises. Com apenas alguns
-          cliques, você pode desbloquear um universo de oportunidades que antes
-          eram privilégio exclusivo de grandes investidores e instituições
+          importa se você é iniciante ou se possui poucos recursos para começar,
+          esta estratégia remove os obstáculos do conhecimento técnico complexo
+          e do tempo necessário para análises. Com apenas alguns cliques através
+          do seu celular, você pode desbloquear um universo de oportunidades que
+          antes eram privilégio exclusivo de grandes investidores e instituições
           financeiras.
         </ScrollReveal>
 

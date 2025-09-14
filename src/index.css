@@ -3,6 +3,46 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Montreal Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Thin'),
+    url('./assets/fonts/MontrealThin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montreal Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Light'),
+    url('./assets/fonts/MontrealLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montreal Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Regular'),
+    url('./assets/fonts/MontrealRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montreal Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Medium'),
+    url('./assets/fonts/MontrealMedium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montreal Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montreal Bold'),
+    url('./assets/fonts/MontrealBold.ttf') format('truetype');
+}
+
 html,
 body {
   margin: 0;
@@ -10,6 +50,8 @@ body {
   box-sizing: border-box;
 
   background-color: #18181b;
+
+  font-family: 'Montreal Regular', sans-serif;
 }
 
 @theme inline {
@@ -126,4 +168,12 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme {
+  --font-montreal-thin: 'Montreal Thin', 'sans-serif';
+  --font-montreal-light: 'Montreal Light', 'sans-serif';
+  --font-montreal: 'Montreal Regular', 'sans-serif';
+  --font-montreal-medium: 'Montreal Medium', 'sans-serif';
+  --font-montreal-bold: 'Montreal Bold', 'sans-serif';
 }
