@@ -25,7 +25,7 @@ function App() {
     baseOpacity: 0,
     blurStrength: 10,
     textClassName:
-      'text-[clamp(1.25rem,3vw,2.125rem)] text-zinc-100 text-center font-montreal-thin',
+      'text-[clamp(1rem,3vw,2rem)] text-zinc-100 text-center font-montreal-thin',
   };
 
   return (
@@ -55,14 +55,14 @@ function App() {
           <SplitText
             {...commonSplitTextProps}
             text='Revolucione suas finanças'
-            className='text-6xl text-center text-zinc-100 font-montreal-bold leading-20'
+            className='text-5xl text-center text-zinc-100 font-montreal-bold leading-20'
             tag='h1'
           />
 
           <SplitText
             {...commonSplitTextProps}
             text='Desbloqueando barreiras financeiras'
-            className='text-4xl text-center text-zinc-100 font-montreal-bold'
+            className='text-3xl text-center text-zinc-100 font-montreal-bold'
             tag='h2'
           />
 
