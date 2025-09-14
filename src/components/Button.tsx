@@ -5,7 +5,7 @@ import type { ButtonProps } from '@/@types';
 export const Button: FC<ButtonProps> = ({ text, className, ...rest }) => {
   return (
     <button
-      className={`group px-10 pt-5 pb-3 bg-zinc-100 rounded-full cursor-pointer drop-shadow-zinc-900 outline-zinc-100 transition delay-75 duration-200 ease-in-out hover:bg-zinc-200 hover:drop-shadow-lg active:ring-1 active:ring-zinc-400 active:drop-shadow-xl active:scale-95 ${className}`}
+      className={`group px-10 pt-5 pb-2 bg-zinc-100 rounded-full cursor-pointer drop-shadow-zinc-900 outline-zinc-100 transition delay-75 duration-200 ease-in-out hover:bg-zinc-200 hover:drop-shadow-lg active:ring-1 active:ring-zinc-400 active:drop-shadow-xl active:scale-95 ${className}`}
       {...rest}
     >
       <SplitText
