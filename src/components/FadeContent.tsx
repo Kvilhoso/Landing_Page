@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, type PropsWithChildren } from 'react';
 
-interface FadeContentProps {
+export interface FadeContentProps {
   blur?: boolean;
   duration?: number;
   easing?: string;
