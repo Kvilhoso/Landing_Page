@@ -1,3 +1,4 @@
+export * from './Button';
 export * from './FadeContent';
 export * from './Footer';
 export * from './Prism';

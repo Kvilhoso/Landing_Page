@@ -1,4 +1,5 @@
 import {
+  Button,
   FadeContent,
   Footer,
   Prism,
@@ -65,13 +66,7 @@ function App() {
             tag='h2'
           />
 
-          <button className='mt-20 px-10 py-5 bg-zinc-100 rounded-full cursor-pointer shadow-zinc-100 hover:shadow-zinc-200 hover:bg-zinc-200 transition-colors duration-300 group'>
-            <SplitText
-              {...commonSplitTextProps}
-              text='Vamos começar'
-              className='text-xl text-zinc-800 font-light leading-6 group-hover:text-zinc-900'
-            />
-          </button>
+          <Button text='Vamos começar' className='mt-10' />
         </div>
       </FadeContent>
 
