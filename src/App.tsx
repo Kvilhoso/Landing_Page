@@ -3,6 +3,7 @@ import {
   Prism,
   ScrollReveal,
   SplitText,
+  type ScrollRevealProps,
   type SplitTextProps,
 } from '@/components';
 
@@ -16,6 +17,14 @@ function App() {
     to: { opacity: 1, y: 0 },
     threshold: 0.1,
     textAlign: 'center',
+  };
+
+  const commonScrollRevealProps: ScrollRevealProps = {
+    enableBlur: true,
+    baseOpacity: 0,
+    blurStrength: 10,
+    textClassName:
+      'text-[clamp(1.25rem,3vw,2.125rem)] font-extralight text-zinc-100 text-center',
   };
 
   return (
@@ -44,8 +53,8 @@ function App() {
         <div className='absolute top-0 left-0 flex flex-col w-full h-full items-center justify-center'>
           <SplitText
             {...commonSplitTextProps}
-            text='Revolucione suas financias'
-            className='text-6xl font-semibold text-center text-zinc-100'
+            text='Revolucione suas finanças'
+            className='text-6xl font-semibold text-center text-zinc-100 leading-20'
             tag='h1'
           />
 
@@ -56,23 +65,18 @@ function App() {
             tag='h2'
           />
 
-          <button className='px-10 pt-5 pb-4 mt-20 bg-zinc-100 rounded-full cursor-pointer shadow-zinc-100 hover:shadow-zinc-200 hover:bg-zinc-200 transition-colors duration-300 group'>
+          <button className='px-10 py-5 mt-20 bg-zinc-100 rounded-full cursor-pointer shadow-zinc-100 hover:shadow-zinc-200 hover:bg-zinc-200 transition-colors duration-300 group'>
             <SplitText
               {...commonSplitTextProps}
               text='Vamos começar'
-              className='text-xl text-zinc-800 font-light group-hover:text-zinc-900'
+              className='text-xl text-zinc-800 font-light leading-6 group-hover:text-zinc-900'
             />
           </button>
         </div>
       </FadeContent>
 
       <div className='flex flex-col w-full h-full px-64 py-10'>
-        <ScrollReveal
-          enableBlur
-          baseOpacity={0}
-          blurStrength={10}
-          textClassName='text-[clamp(1.25rem,3vw,2.125rem)] font-extralight text-zinc-100 text-center'
-        >
+        <ScrollReveal {...commonScrollRevealProps}>
           O copy trading representa uma verdadeira revolução no mundo dos
           investimentos, permitindo que qualquer pessoa, independentemente de
           sua experiência, tenha acesso às mesmas estratégias utilizadas por
@@ -83,12 +87,7 @@ function App() {
           uma nova era de possibilidades financeiras ilimitadas.
         </ScrollReveal>
 
-        <ScrollReveal
-          enableBlur
-          baseOpacity={0}
-          blurStrength={10}
-          textClassName='text-[clamp(1.25rem,3vw,2.125rem)] font-extralight text-zinc-100 text-center'
-        >
+        <ScrollReveal {...commonScrollRevealProps}>
           As barreiras que antes impediam o acesso aos mercados financeiros
           agora podem ser completamente eliminadas através do copy trading,
           democratizando o investimento e tornando-o acessível a todos. Não
