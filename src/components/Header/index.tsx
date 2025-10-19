@@ -11,14 +11,14 @@ function Header() {
           <div className='flex gap-8 items-center'>
             <button
               onClick={() => scrollTo('who-are-we')}
-              className='text-gray-300 hover:text-white transition-colors duration-200 text-sm'
+              className='text-gray-300 hover:text-white transition-colors duration-200 text-sm cursor-pointer'
             >
               Quem somos
             </button>
 
             <button
               onClick={() => scrollTo('hire')}
-              className='bg-white text-black px-6 py-2.5 rounded-full hover:bg-gray-100 transition-all duration-200 text-sm font-medium'
+              className='bg-white text-black px-6 py-2.5 rounded-full hover:bg-gray-100 transition-all duration-200 text-sm font-medium cursor-pointer'
             >
               Contratar
             </button>

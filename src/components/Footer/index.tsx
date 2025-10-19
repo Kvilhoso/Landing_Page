@@ -27,7 +27,7 @@ function Footer() {
                 <li>
                   <button
                     onClick={() => scrollTo('who-are-we')}
-                    className='text-gray-400 hover:text-white transition-colors text-sm'
+                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
                   >
                     Quem somos
                   </button>
@@ -35,7 +35,7 @@ function Footer() {
                 <li>
                   <button
                     onClick={() => scrollTo('hire')}
-                    className='text-gray-400 hover:text-white transition-colors text-sm'
+                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
                   >
                     Contratar
                   </button>
@@ -53,7 +53,7 @@ function Footer() {
                     href='https://wa.me/seu_numero_aqui'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-gray-400 hover:text-white transition-colors text-sm'
+                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
                   >
                     WhatsApp
                   </a>

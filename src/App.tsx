@@ -162,7 +162,7 @@ function App() {
                 href='https://wa.me/seu_numero_aqui'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium hover:bg-gray-100 transition-all duration-200'
+                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium hover:bg-gray-100 transition-all duration-200 cursor-pointer'
               >
                 Entrar no Grupo WhatsApp
               </a>
