@@ -1,9 +1,10 @@
-import { TrendingUp, Shield, Zap, Users, BarChart3 } from 'lucide-react';
+import { TrendingUp, Shield, Users, BarChart3, HandCoins } from 'lucide-react';
 import { Benefit, Feature, Footer, Header } from './components';
+import { onContact } from './utils';
 
 function App() {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div id='main' className='min-h-screen bg-black text-white'>
       <Header />
 
       <section className='pt-40 pb-32 px-6'>
@@ -14,32 +15,32 @@ function App() {
                 Tecnologia de Ponta
               </span>
             </div>
-            <h1 className='text-6xl md:text-7xl lg:text-8xl font-light mb-8 leading-tight'>
-              Robô XAUUSD
+            <h1 className='text-6xl md:text-7xl font-light mb-8 leading-tight'>
+              Desbrave novas fronteiras do mercado financeiro
             </h1>
             <p className='text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed'>
-              Automatize seus investimentos em ouro com algoritmos inteligentes,
-              trading 24/7 e gestão de risco avançada.
+              Automatizando seus investimentos com o algoritmo mais inteligente
+              do mercado.
             </p>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-24'>
             <Feature
               title='Alta Performance'
-              description='Estratégias otimizadas para maximizar ganhos no mercado de ouro.'
+              description='Estratégia otimizada para captar lucros nas menores movimentações do mercado.'
               icon={<TrendingUp className='w-10 h-10 text-white mb-6' />}
             />
 
             <Feature
-              title='Segurança Total'
-              description='Proteção de capital com stop loss inteligente e gestão de risco.'
+              title='Preservação de Capital'
+              description='Algoritmo treinado para arriscar somente quando necessário.'
               icon={<Shield className='w-10 h-10 text-white mb-6' />}
             />
 
             <Feature
-              title='Execução Rápida'
-              description='Trading automatizado 24/7 aproveitando as melhores oportunidades.'
-              icon={<Zap className='w-10 h-10 text-white mb-6' />}
+              title='100% Automático'
+              description='O poder financeiro na palmada sua mão.'
+              icon={<HandCoins className='w-10 h-10 text-white mb-6' />}
             />
           </div>
         </div>
@@ -57,7 +58,7 @@ function App() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-            <div className='space-y-6'>
+            <div className='flex flex-col justify-between space-y-6'>
               <Benefit
                 title='Tecnologia Proprietária'
                 description='Algoritmos desenvolvidos do zero, sem dependência de terceiros. Arquitetura otimizada para performance.'
@@ -70,14 +71,14 @@ function App() {
 
               <Benefit
                 title='Gestão de Risco Embutida'
-                description='Stop loss automático e gestão de posições já integrados ao sistema desde o início.'
+                description='Gestão de posições já integrados ao sistema desde o início.'
               />
             </div>
 
-            <div className='space-y-6'>
+            <div className='flex flex-col justify-between space-y-6'>
               <Benefit
                 title='Monitoramento em Tempo Real'
-                description='Acompanhe suas operações e resultados em tempo real com interface intuitiva e relatórios detalhados.'
+                description='Acompanhe suas operações e resultados em tempo real com interface intuitiva e relatórios detalhados diretamente do seu celular.'
               />
 
               <Benefit
@@ -87,7 +88,7 @@ function App() {
 
               <Benefit
                 title='Suporte Especializado'
-                description='Equipe técnica disponível para auxiliar na configuração e otimização do seu robô.'
+                description='Equipe técnica disponível para auxiliar na configuração e otimização do seu algoritmo.'
               />
             </div>
           </div>
@@ -118,7 +119,7 @@ function App() {
                 <p>
                   Desenvolvemos algoritmos proprietários que analisam milhares
                   de dados em tempo real para identificar as melhores
-                  oportunidades de trading. Nosso robô foi testado
+                  oportunidades de trading. Nosso algoritmo foi testado
                   extensivamente em diferentes condições de mercado.
                 </p>
               </div>
@@ -129,7 +130,7 @@ function App() {
               <h3 className='text-2xl font-light mb-4'>
                 Transformamos dados em lucros
               </h3>
-              <p className='text-gray-400 text-sm'>
+              <p className='text-gray-400 text-base'>
                 Acreditamos que a tecnologia pode democratizar o acesso a
                 estratégias de investimento sofisticadas.
               </p>
@@ -154,26 +155,27 @@ function App() {
                 Pronto para começar?
               </h2>
               <p className='text-lg text-gray-400 mb-10 leading-relaxed'>
-                Entre para o nosso grupo exclusivo no WhatsApp e receba
-                orientações personalizadas sobre como adquirir e configurar seu
-                robô XAUUSD.
+                Entre em contato conosco e receba orientações personalizadas
+                sobre como adquirir e configurar seu algoritmo.
               </p>
-              <a
-                href='https://wa.me/seu_numero_aqui'
-                target='_blank'
+              <button
                 rel='noopener noreferrer'
-                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium hover:bg-gray-100 transition-all duration-200 cursor-pointer'
+                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200'
+                onClick={onContact}
+                // Remove disabled in the future
+                disabled
               >
-                Entrar no Grupo WhatsApp
-              </a>
+                Contratar
+              </button>
             </div>
 
             <div className='relative'>
               <div className='aspect-video rounded-2xl overflow-hidden border border-white/10'>
+                {/* Add video in the future */}
                 <video
                   className='w-full h-full object-cover bg-zinc-900'
                   controls
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23000000' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFFFFF' font-size='32' font-family='system-ui, sans-serif' dy='.3em'%3ERobô XAUUSD em Ação%3C/text%3E%3C/svg%3E"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23000000' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFFFFF' font-size='32' font-family='system-ui, sans-serif' dy='.3em'%Algoritmo em Ação%3C/text%3E%3C/svg%3E"
                 >
                   <source src='seu_video_aqui.mp4' type='video/mp4' />
                   Seu navegador não suporta vídeos.

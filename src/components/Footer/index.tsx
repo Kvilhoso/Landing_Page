@@ -13,8 +13,8 @@ function Footer() {
               projeKt Rage
             </h2>
             <p className='text-gray-400 text-sm leading-relaxed max-w-md'>
-              Tecnologia proprietária para automatizar seus investimentos em
-              XAUUSD com segurança e performance.
+              Tecnologia proprietária para automatizar seus investimentos com
+              segurança e escalabilidade.
             </p>
           </div>
 
