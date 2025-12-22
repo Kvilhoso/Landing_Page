@@ -34,8 +34,10 @@ function Footer() {
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollTo('hire')}
-                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
+                    onClick={onContact}
+                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    // Remove disabled in the future
+                    disabled
                   >
                     Contratar
                   </button>
