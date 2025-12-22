@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { scrollTo } from '@/utils';
+import { onContact, scrollTo } from '@/utils';
 
 const currentYear = new Date().getFullYear();
 
@@ -49,14 +49,15 @@ function Footer() {
               </h3>
               <ul className='space-y-3'>
                 <li>
-                  <a
-                    href='https://wa.me/seu_numero_aqui'
-                    target='_blank'
+                  <button
                     rel='noopener noreferrer'
-                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
+                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    onClick={onContact}
+                    // Remove disabled in the future
+                    disabled
                   >
-                    WhatsApp
-                  </a>
+                    Suporte
+                  </button>
                 </li>
               </ul>
             </div>
