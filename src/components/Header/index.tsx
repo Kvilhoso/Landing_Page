@@ -6,7 +6,14 @@ function Header() {
     <header className='fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-6xl'>
       <nav className='backdrop-blur-xl bg-white/5 rounded-full px-8 py-4 shadow-2xl border border-white/10'>
         <div className='flex justify-between items-center'>
-          <div className='text-xl font-semibold'>projeKt Rage</div>
+          <div className='text-xl font-semibold'>
+            <button
+              className='text-white cursor-pointer hover:text-gray-300 transition-colors duration-200'
+              onClick={() => scrollTo('main')}
+            >
+              projeKt Rage
+            </button>
+          </div>
 
           <div className='flex gap-8 items-center'>
             <button
