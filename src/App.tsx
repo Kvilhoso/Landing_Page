@@ -39,7 +39,7 @@ function App() {
 
             <Feature
               title='100% Automático'
-              description='O poder financeiro na palmada sua mão.'
+              description='O poder financeiro na palma da sua mão.'
               icon={<HandCoins className='w-10 h-10 text-white mb-6' />}
             />
           </div>
