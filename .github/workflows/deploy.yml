@@ -1,14 +1,21 @@
 name: Landing Page Deployment
+
 on:
   push:
-    branches:
-      - main
+    branches: [main, master]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,11 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Configure Git
-        run: |
-          git config --global user.name 'Bruno Cavilha'
-          git config --global user.email 'cavilhoso@gmail.com'
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -36,12 +38,13 @@ jobs:
       - name: Add CNAME to dist
         run: echo "www.projektrage.com.br" > dist/CNAME
 
-      - name: Configure auth for git push (gh-pages)
-        run: git config --global url."https://github.com/".insteadOf "https://github.com/"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        run: pnpm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4
