@@ -86,6 +86,7 @@ function Header() {
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
                 <span>Quem somos</span>
+
                 <ChevronRight className='size-5 text-gray-300 group-hover:text-white transition-colors duration-200' />
               </div>
             </button>
@@ -96,17 +97,19 @@ function Header() {
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
                 <span>Contratar</span>
+
                 <ChevronRight className='size-5 text-gray-300 group-hover:text-white transition-colors duration-200' />
               </div>
             </button>
 
             <button
-              className='w-full px-8 py-4 shadow-2xl text-gray-300 bg-black border-b border-b-white/10 cursor-pointer disabled:cursor-not-allowed disabled:text-gray-300'
+              className='w-full px-8 py-4 shadow-2xl text-gray-300 bg-black border-b border-b-white/10 cursor-pointer disabled:cursor-not-allowed disabled:text-gray-500'
               disabled
             >
               <div className='flex w-full justify-between gap-2'>
                 <span>Suporte</span>
-                <ChevronRight className='size-5 text-gray-300 cursor-not-allowed' />
+
+                <ChevronRight className='size-5 text-gray-500 cursor-not-allowed' />
               </div>
             </button>
           </motion.div>
