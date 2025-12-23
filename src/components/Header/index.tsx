@@ -24,8 +24,8 @@ function Header() {
   }
 
   return (
-    <header className='fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-11/12 max-w-6xl'>
-      <nav className='md:backdrop-blur-xl bg-black md:bg-white/5 md:rounded-full px-8 py-4 shadow-2xl border border-white/10'>
+    <header className='backdrop-blur-2xl fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-11/12 max-w-6xl'>
+      <nav className='bg-white/5 md:rounded-full px-8 py-4 md:shadow-2xl md:border md:border-white/10'>
         <div className='flex justify-between items-center'>
           <div
             className='group flex gap-2 text-xl font-semibold'
@@ -78,10 +78,10 @@ function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className='overflow-hidden md:hidden flex flex-col bg-black'
+            className='overflow-hidden md:hidden flex flex-col bg-white/5'
           >
             <button
-              className='group w-full px-8 py-4 shadow-2xl bg-black border-b border-b-white/10 transition-colors duration-200 cursor-pointer'
+              className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
               onClick={onHideByWhoWeAre}
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
@@ -92,7 +92,7 @@ function Header() {
             </button>
 
             <button
-              className='group w-full px-8 py-4 shadow-2xl bg-black border-b border-b-white/10 transition-colors duration-200 cursor-pointer'
+              className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
               onClick={onHideByMenu}
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
@@ -103,7 +103,7 @@ function Header() {
             </button>
 
             <button
-              className='w-full px-8 py-4 shadow-2xl text-gray-300 bg-black border-b border-b-white/10 cursor-pointer disabled:cursor-not-allowed disabled:text-gray-500'
+              className='w-full px-8 py-4 text-gray-300 cursor-pointer disabled:cursor-not-allowed disabled:text-gray-500'
               disabled
             >
               <div className='flex w-full justify-between gap-2'>
