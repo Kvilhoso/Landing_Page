@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -40,10 +40,6 @@ jobs:
           echo "www.projektrage.com.br" > dist/CNAME
           touch dist/.nojekyll
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
         run: pnpm run deploy
         env:
