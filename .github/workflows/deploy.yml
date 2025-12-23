@@ -35,8 +35,10 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Add CNAME to dist
-        run: echo "www.projektrage.com.br" > dist/CNAME
+      - name: Add CNAME and .nojekyll to dist
+        run: |
+          echo "www.projektrage.com.br" > dist/CNAME
+          touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
