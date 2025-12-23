@@ -1,4 +1,4 @@
-name: Deploy Vite + React app to GitHub Pages
+name: Landing Page Deployment
 on:
   push:
     branches:
@@ -32,6 +32,14 @@ jobs:
 
       - name: Build project
         run: pnpm run build
+
+      - name: Add CNAME to dist
+        run: echo "www.projektrage.com.br" > dist/CNAME
+
+      - name: Configure auth for git push (gh-pages)
+        run: git config --global url."https://github.com/".insteadOf "https://github.com/"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages
         run: pnpm run deploy
