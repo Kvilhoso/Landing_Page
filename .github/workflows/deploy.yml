@@ -26,6 +26,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "Kvilhoso"
+          git config --global user.email "cavilhoso@gmail.com"
+
       - name: Install pnpm
         run: npm install -g pnpm
 
