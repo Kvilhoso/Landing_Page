@@ -1,6 +1,7 @@
 import { TrendingUp, Shield, Users, BarChart3, HandCoins } from 'lucide-react';
-import { Benefit, Feature, Footer, Header } from './components';
-import { onContact } from './utils';
+import { Benefit, Feature, Footer, Header, PricingCard } from './components';
+import { onContact, scrollTo } from './utils';
+import { PLANS } from './constants';
 
 function App() {
   return (
@@ -127,14 +128,56 @@ function App() {
 
             <div className='bg-white/5 border border-white/10 rounded-3xl p-12 text-center'>
               <BarChart3 className='w-16 h-16 text-white mx-auto mb-6' />
+
               <h3 className='text-2xl font-light mb-4'>
                 Transformamos dados em lucros
               </h3>
+
               <p className='text-gray-400 text-base'>
                 Acreditamos que a tecnologia pode democratizar o acesso a
                 estratégias de investimento sofisticadas.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id='pricing'
+        className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'
+      >
+        <div className='max-w-5xl mx-auto'>
+          <div className='text-center mb-20'>
+            <div className='inline-block mb-6'>
+              <span className='text-xs uppercase tracking-wider text-gray-400 font-medium'>
+                Planos e Preços
+              </span>
+            </div>
+            <h2 className='text-4xl md:text-5xl font-light mb-6 text-white'>
+              Escolha o plano ideal para você
+            </h2>
+            <p className='text-xl text-gray-400 font-light max-w-2xl mx-auto'>
+              Algoritmos profissionais de trading automatizado adaptados ao seu
+              perfil de investimento
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            {PLANS.map(plan => (
+              <PricingCard key={plan.id} {...plan} />
+            ))}
+          </div>
+
+          <div className='mt-16 text-center'>
+            <p className='text-sm text-gray-400'>
+              Todos os planos incluem 30 dias de garantia. Dúvidas?{' '}
+              <button
+                className='text-white cursor-pointer hover:underline'
+                onClick={() => scrollTo('hire')}
+              >
+                Entre em contato
+              </button>
+            </p>
           </div>
         </div>
       </section>
