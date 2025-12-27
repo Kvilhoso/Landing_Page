@@ -1,10 +1,9 @@
 export interface PricingCardProps {
-  id: string;
-  price: string;
   plan: string;
   description: string;
   features: string[];
-  highlighted?: boolean;
-  comingSoon?: boolean;
+  brand: string;
+  price?: string;
+  isHighlight?: boolean;
   isRequestQuote?: boolean;
 }

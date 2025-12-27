@@ -1,11 +1,12 @@
 import type { PricingCardProps } from '@/@types';
+import { DYNAMIC, ENTRY, PRO, UNLIMITED } from '@/config';
 
 export const PLANS: PricingCardProps[] = [
   {
-    id: 'rage-entry',
     plan: 'Rage ENTRY',
     price: '$ 499.90',
     description: 'Para quem está começando no trading automatizado',
+    brand: ENTRY,
     features: [
       'Saldo máximo: $ 3,000.00',
       'Acesso ao algoritmo básico',
@@ -14,13 +15,12 @@ export const PLANS: PricingCardProps[] = [
       'Suporte por email',
       'Configuração assistida',
     ],
-    highlighted: false,
   },
   {
-    id: 'rage-pro',
     plan: 'Rage PRO',
     price: '$ 2,499.90',
     description: 'Performance otimizada para traders experientes',
+    brand: PRO,
     features: [
       'Saldo máximo: $ 15,000.00',
       'Algoritmo completo com todas as estratégias',
@@ -31,13 +31,12 @@ export const PLANS: PricingCardProps[] = [
       'Gestão de risco avançada',
       'Acesso antecipado a novas features',
     ],
-    highlighted: true,
+    isHighlight: true,
   },
   {
-    id: 'rage-dynamic',
     plan: 'Rage Dynamic',
-    price: 'Solicitar orçamento',
     description: 'Máxima flexibilidade e controle',
+    brand: DYNAMIC,
     features: [
       'Saldo máximo: $ 200,000.00',
       'Ajuste dinâmico de parâmetros',
@@ -48,14 +47,12 @@ export const PLANS: PricingCardProps[] = [
       'Suporte técnico especializado',
       'Atualizações em tempo real',
     ],
-    highlighted: false,
     isRequestQuote: true,
   },
   {
-    id: 'rage-unlimited',
     plan: 'Rage Unlimited',
-    price: 'Solicitar orçamento',
     description: 'Solução enterprise para grandes investidores',
+    brand: UNLIMITED,
     features: [
       'Saldo ilimitado',
       'Conta vitalícia',
@@ -67,7 +64,6 @@ export const PLANS: PricingCardProps[] = [
       'Integração com sistemas proprietários',
       'Consultoria estratégica mensal',
     ],
-    highlighted: false,
     isRequestQuote: true,
   },
 ];

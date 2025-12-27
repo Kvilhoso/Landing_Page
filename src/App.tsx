@@ -163,8 +163,8 @@ function App() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {PLANS.map(plan => (
-              <PricingCard key={plan.id} {...plan} />
+            {PLANS.map((plan, index) => (
+              <PricingCard key={index} {...plan} />
             ))}
           </div>
 

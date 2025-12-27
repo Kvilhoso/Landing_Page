@@ -8,13 +8,13 @@ function PricingCard(props: PricingCardProps) {
     description,
     price,
     features,
-    highlighted = false,
-    comingSoon = false,
+    brand,
+    isHighlight = false,
     isRequestQuote = false,
   } = props;
 
-  const highlightedPrimaryText = highlighted ? 'text-black' : 'text-white';
-  const highlightedSecondaryText = highlighted
+  const highlightedPrimaryText = isHighlight ? 'text-black' : 'text-white';
+  const highlightedSecondaryText = isHighlight
     ? 'text-gray-600'
     : 'text-gray-400';
 
@@ -27,54 +27,65 @@ function PricingCard(props: PricingCardProps) {
           />
           <span
             className={`text-sm leading-relaxed ${
-              highlighted ? 'text-gray-700' : 'text-gray-300'
+              isHighlight ? 'text-gray-700' : 'text-gray-300'
             }`}
           >
             {feature}
           </span>
         </li>
       )),
-    [features, highlighted, highlightedPrimaryText]
+    [features, isHighlight, highlightedPrimaryText]
   );
 
   return (
     <div
       className={`relative flex flex-col justify-between rounded-3xl p-5 transition-all duration-300 hover:scale-105 ${
-        highlighted
+        isHighlight
           ? 'bg-white text-black border-2 border-white'
           : 'bg-white/5 border border-white/10 hover:border-white/20'
       }`}
     >
-      {comingSoon && (
-        <div className='absolute top-5 right-5'>
-          <span className='text-xs uppercase tracking-wider text-white font-medium px-3 py-2 bg-white/5 rounded-full border border-white/10'>
-            Em Breve
-          </span>
-        </div>
-      )}
+      <img
+        alt={plan}
+        src={brand}
+        className='absolute hidden sm:block -top-4 right-5 size-24'
+      />
 
       <div className='flex flex-col'>
         <div className='mb-8'>
           <h3 className={`text-2xl font-light mb-2 ${highlightedPrimaryText}`}>
             {plan}
           </h3>
+
           <p className={`text-sm ${highlightedSecondaryText} mb-6`}>
             {description}
           </p>
 
-          <div className='flex items-baseline gap-2'>
-            <span
-              className={`text-3xl sm:text-4xl font-light ${highlightedPrimaryText}`}
-            >
-              {price}
-            </span>
-
-            {!isRequestQuote && (
-              <span className={`text-base ${highlightedSecondaryText}`}>
-                /ano
+          {price ? (
+            <div className='flex items-baseline gap-2'>
+              <span
+                className={`text-3xl sm:text-4xl font-light ${highlightedPrimaryText}`}
+              >
+                {price}
               </span>
-            )}
-          </div>
+
+              {!isRequestQuote && (
+                <span className={`text-base ${highlightedSecondaryText}`}>
+                  /ano
+                </span>
+              )}
+            </div>
+          ) : (
+            <div
+              className={`inline-block px-4 py-2 rounded-full text-2xl font-bold ${
+                isHighlight
+                  ? 'bg-black/10 text-black'
+                  : 'bg-white/10 text-white border border-white/20'
+              }`}
+            >
+              Solicitar Orçamento
+            </div>
+          )}
         </div>
 
         {/* Add mb-8 when button is visible in the future */}
@@ -82,17 +93,17 @@ function PricingCard(props: PricingCardProps) {
       </div>
 
       {/* In the future this button must be uncommented */}
-      {/* {!comingSoon && (
+      {/*
         <button
-          className={`w-full py-4 rounded-full text-base font-medium transition-all duration-200 ${
-            highlighted
+          className={`w-full py-4 rounded-full text-base font-medium transition-all duration-200 cursor-pointer ${
+            isHighlight
               ? 'bg-black text-white hover:bg-gray-800'
               : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-          } ${comingSoon ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+          }`}
         >
           Contratar
         </button>
-      )} */}
+      */}
     </div>
   );
 }
