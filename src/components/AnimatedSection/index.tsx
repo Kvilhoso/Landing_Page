@@ -1,12 +1,6 @@
-import { memo, type PropsWithChildren } from 'react';
+import { memo } from 'react';
 import { motion } from 'framer-motion';
-
-export interface AnimatedSectionProps extends PropsWithChildren {
-  id?: string;
-  className?: string;
-  duration?: number;
-  delay?: number;
-}
+import type { AnimatedSectionProps } from '@/@types';
 
 function AnimatedSection(props: AnimatedSectionProps) {
   const { children, id, className = '', duration = 0.8, delay = 0 } = props;
