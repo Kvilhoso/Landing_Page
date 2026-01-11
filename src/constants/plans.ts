@@ -1,12 +1,17 @@
 import type { PricingCardProps } from '@/@types';
-import { DYNAMIC, ENTRY, PRO, UNLIMITED } from '@/config';
+import {
+  BADGE_DYNAMIC,
+  BADGE_ENTRY,
+  BADGE_PRO,
+  BADGE_UNLIMITED,
+} from '@/config';
 
 export const PLANS: PricingCardProps[] = [
   {
     plan: 'Rage ENTRY',
     price: '$ 499.90',
     description: 'Para quem está começando no trading automatizado',
-    brand: ENTRY,
+    brand: BADGE_ENTRY,
     features: [
       'Saldo máximo: $ 3,000.00',
       'Acesso ao algoritmo básico',
@@ -20,7 +25,7 @@ export const PLANS: PricingCardProps[] = [
     plan: 'Rage PRO',
     price: '$ 2,499.90',
     description: 'Performance otimizada para traders experientes',
-    brand: PRO,
+    brand: BADGE_PRO,
     features: [
       'Saldo máximo: $ 15,000.00',
       'Algoritmo completo com todas as estratégias',
@@ -36,7 +41,7 @@ export const PLANS: PricingCardProps[] = [
   {
     plan: 'Rage Dynamic',
     description: 'Máxima flexibilidade e controle',
-    brand: DYNAMIC,
+    brand: BADGE_DYNAMIC,
     features: [
       'Saldo máximo: $ 200,000.00',
       'Ajuste dinâmico de parâmetros',
@@ -52,7 +57,7 @@ export const PLANS: PricingCardProps[] = [
   {
     plan: 'Rage Unlimited',
     description: 'Solução enterprise para grandes investidores',
-    brand: UNLIMITED,
+    brand: BADGE_UNLIMITED,
     features: [
       'Saldo ilimitado',
       'Conta vitalícia',

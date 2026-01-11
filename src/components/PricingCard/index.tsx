@@ -48,7 +48,7 @@ function PricingCard(props: PricingCardProps) {
       <img
         alt={plan}
         src={brand}
-        className='absolute hidden sm:block -top-4 right-5 size-24'
+        className='absolute hidden sm:block top-4 right-5 size-10'
       />
 
       <div className='flex flex-col'>
