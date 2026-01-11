@@ -24,7 +24,12 @@ function Header() {
   }
 
   return (
-    <header className='backdrop-blur-2xl fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-11/12 max-w-6xl'>
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className='backdrop-blur-2xl fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-11/12 max-w-6xl'
+    >
       <nav className='bg-white/5 md:rounded-full px-8 py-4 md:shadow-2xl md:border md:border-white/10'>
         <div className='flex justify-between items-center'>
           <div
@@ -115,7 +120,7 @@ function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
 
