@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.0...v1.0.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* semantic-release not change version in packages ([a5b87f6](https://github.com/Kvilhoso/Landing_Page/commit/a5b87f65115c0d06799c5378e70ab7442888946e))
+
 # 1.0.0 (2026-02-20)
 
 
