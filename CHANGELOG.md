@@ -1,0 +1,48 @@
+# 1.0.0 (2026-02-20)
+
+
+### Bug Fixes
+
+* add upload artifact ([ceddfed](https://github.com/Kvilhoso/Landing_Page/commit/ceddfed5597c1f819f5a3c9b88cbb1142b2dc66a))
+* adjust base ([8e8e9e4](https://github.com/Kvilhoso/Landing_Page/commit/8e8e9e4491e2fd0317d6ca84e8918ba56d070112))
+* adjust favicon type ([ba7ca73](https://github.com/Kvilhoso/Landing_Page/commit/ba7ca731888d9bc418e8970434e5ff94db9a3f0e))
+* configure `git` user ([b05195d](https://github.com/Kvilhoso/Landing_Page/commit/b05195dd0817de322e7e261f73f329e214a7e6f7))
+* export types and interfaces of the all components ([696c9ac](https://github.com/Kvilhoso/Landing_Page/commit/696c9ac9eb5f6e8599d0ed12376e219be2c9800d))
+* grammar adjust only ([15537db](https://github.com/Kvilhoso/Landing_Page/commit/15537db3e66282eca3e5d42d081f6be6cd019b84))
+* install pnpm during deploy workflow action ([cafd827](https://github.com/Kvilhoso/Landing_Page/commit/cafd827eb9f5b350962272de215659f821ed7b16))
+* remove `PropsWithChildren` type in `Prism` component ([436ecf2](https://github.com/Kvilhoso/Landing_Page/commit/436ecf20e33841f830bbf25d0e84c8b96ff907a0))
+* small adjust in name of the project ([c78292d](https://github.com/Kvilhoso/Landing_Page/commit/c78292d52e521cd5da7bcb119e8bef3d24e1ace1))
+* small adjustment in the contact label ([dbc3a0d](https://github.com/Kvilhoso/Landing_Page/commit/dbc3a0d9d2874238b87eb56cac9d717c2c9977fe))
+* small adjustment in the label ([034ad72](https://github.com/Kvilhoso/Landing_Page/commit/034ad72990885b65c30e1b44458a58bf3446c267))
+* small some configs ([3cd8901](https://github.com/Kvilhoso/Landing_Page/commit/3cd89010433414ee7457a3a67f517cb15b7f80cc))
+* wip ([973b479](https://github.com/Kvilhoso/Landing_Page/commit/973b47976e738cb3ef1e318697ad45d5b9b84f78))
+* wip ([b5a3c86](https://github.com/Kvilhoso/Landing_Page/commit/b5a3c86883860ae980458b35642f5284beb1182d))
+* wip ([eaf1038](https://github.com/Kvilhoso/Landing_Page/commit/eaf1038432c5f914960fee90505b146b526e3bf9))
+
+
+### Features
+
+* add `Button` component ([06d6817](https://github.com/Kvilhoso/Landing_Page/commit/06d6817695fb77f9e470fd3affab14674102d378))
+* add `FadeContent` and `ScrollReveal` components ([2251020](https://github.com/Kvilhoso/Landing_Page/commit/22510201709a623dfa0dc3727c8cdcd260e9cd82))
+* add `Footer` component ([f48fecd](https://github.com/Kvilhoso/Landing_Page/commit/f48fecd91ac7d31a2a823a9423f01d3f74436810))
+* add `onContact` in the `Footer` component ([aad409b](https://github.com/Kvilhoso/Landing_Page/commit/aad409b9b24fb6d5c1d6778d6f2784045044926c))
+* add `scrollTo` in the `Header` component ([c5dd698](https://github.com/Kvilhoso/Landing_Page/commit/c5dd698d480908d51cb8aac61ea73aa7a068c5f0))
+* add `scrollTo` util function ([3183354](https://github.com/Kvilhoso/Landing_Page/commit/31833546d9dc833a9907fb1b60e232a31706bb4a))
+* add `window` utils ([1cfd782](https://github.com/Kvilhoso/Landing_Page/commit/1cfd782df94f087a44f57dc7845433bed50d3547))
+* add badge plans ([d1d1d63](https://github.com/Kvilhoso/Landing_Page/commit/d1d1d63650bd3755f3f769b50598019a3024f3fe))
+* add badges and improve `PricingCard` component ([5cfcecd](https://github.com/Kvilhoso/Landing_Page/commit/5cfcecd1b727daacd2806c36d7b486fe41936f62))
+* add custom header for small devices ([170d6f6](https://github.com/Kvilhoso/Landing_Page/commit/170d6f6144a681df74e5d5c7eb50d84d42b6db62))
+* add entering animation in landing page ([da7bd38](https://github.com/Kvilhoso/Landing_Page/commit/da7bd380a7ca7f50c899cc451d3592de48e43d27))
+* add fonts and images ([2fa2114](https://github.com/Kvilhoso/Landing_Page/commit/2fa2114dd19fc75c9fc98bcba4f7059648dc4447))
+* add image logo in `Footer` component ([73656e2](https://github.com/Kvilhoso/Landing_Page/commit/73656e2ab7eb18413d1c241abba2d26afe5b3347))
+* add logo quad ([594563f](https://github.com/Kvilhoso/Landing_Page/commit/594563fef222df5847af26359c0947d468a33ccb))
+* add name project in index ([88ca826](https://github.com/Kvilhoso/Landing_Page/commit/88ca8263e9172a8e01f0d89f6113badc286ab822))
+* add new animations in background and more contents ([df087f6](https://github.com/Kvilhoso/Landing_Page/commit/df087f6ea9f27bd574eae4b31f88a7193db0af61))
+* add permissions content write ([aef506f](https://github.com/Kvilhoso/Landing_Page/commit/aef506fcf0ae970dd9f23d01c2e7685fa2d9e23a))
+* add plans ([d0d18c7](https://github.com/Kvilhoso/Landing_Page/commit/d0d18c748f4069d2359151ee1196e9a055a8cba3))
+* add react bits and shadcn ui ([02024f9](https://github.com/Kvilhoso/Landing_Page/commit/02024f9f1f97ca76bb7c68cf499c057954bd502f))
+* add sematic-release and code owners ([58f9f11](https://github.com/Kvilhoso/Landing_Page/commit/58f9f11ed0214cb3771781ee1cf76b9460cff51c))
+* clean all project ([d7af20d](https://github.com/Kvilhoso/Landing_Page/commit/d7af20df98128e8768269d3c72c27cffe393ada0))
+* improve labels ([67b1857](https://github.com/Kvilhoso/Landing_Page/commit/67b1857e935ec0f08ccceda642116df3a80d1875))
+* initial commit ([07c1ccb](https://github.com/Kvilhoso/Landing_Page/commit/07c1ccb602df642a60d876f99ade2d9e0ea8fd7b))
+* new landing page ([c331174](https://github.com/Kvilhoso/Landing_Page/commit/c331174a532b280d1901b91ec82f50fe2fffa049))
