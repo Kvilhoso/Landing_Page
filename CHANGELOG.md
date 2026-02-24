@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.1...v1.0.2) (2026-02-24)
+
+
+### Bug Fixes
+
+* update plans and add format currency ([37c598f](https://github.com/Kvilhoso/Landing_Page/commit/37c598f859cf976ac5e7d55d9324dc9957fcafdd))
+
 ## [1.0.1](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.0...v1.0.1) (2026-02-20)
 
 
