@@ -34,7 +34,7 @@ function PricingCard(props: PricingCardProps) {
           </span>
         </li>
       )),
-    [features, isHighlight, highlightedPrimaryText]
+    [features, isHighlight, highlightedPrimaryText],
   );
 
   return (
