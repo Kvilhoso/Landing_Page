@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Kvilhoso/Landing_Page/compare/v1.2.0...v1.2.1) (2026-03-02)
+
+
+### Bug Fixes
+
+* adjust entry plan price ([9a03fd6](https://github.com/Kvilhoso/Landing_Page/commit/9a03fd63efbea1a2ecc92f74113ad8f32a90f22e))
+
 # [1.2.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.1.0...v1.2.0) (2026-03-02)
 
 # [1.1.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.3...v1.1.0) (2026-03-02)
