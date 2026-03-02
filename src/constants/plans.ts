@@ -10,7 +10,7 @@ import { formatCurrency } from '@/utils';
 export const PLANS: PricingCardProps[] = [
   {
     plan: 'Rage ENTRY',
-    price: formatCurrency(499.9),
+    price: formatCurrency(799.9),
     description: 'Para quem está começando no trading automatizado',
     brand: BADGE_ENTRY,
     features: [
