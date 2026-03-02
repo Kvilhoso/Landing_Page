@@ -1,3 +1,5 @@
+# [1.2.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.1.0...v1.2.0) (2026-03-02)
+
 # [1.1.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.3...v1.1.0) (2026-03-02)
 
 
