@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.3...v1.1.0) (2026-03-02)
+
+
+### Features
+
+* add SEO meta tags ([36a0b13](https://github.com/Kvilhoso/Landing_Page/commit/36a0b13e94d9edcc72f2144bcff7d4024711552c))
+
 ## [1.0.3](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.2...v1.0.3) (2026-02-26)
 
 ## [1.0.2](https://github.com/Kvilhoso/Landing_Page/compare/v1.0.1...v1.0.2) (2026-02-24)
