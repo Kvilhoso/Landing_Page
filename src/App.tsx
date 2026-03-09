@@ -1,9 +1,11 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3, HandCoins, Shield, TrendingUp, Users } from 'lucide-react';
 import {
   AcademySection,
   AnimatedSection,
   Benefit,
+  Chip,
   ContactForm,
   Feature,
   Footer,
@@ -11,9 +13,10 @@ import {
   PerformanceChart,
   PricingCard,
   StatCounter,
+  StepWork,
 } from './components';
 import { scrollTo } from './utils';
-import { PLANS } from './constants';
+import { HOW_TO_WORK, PLANS } from './constants';
 
 // ── Static data ───────────────────────────────────────────────────────────────
 const MONTHLY_RESULTS = [
@@ -42,29 +45,6 @@ const PERF_TABLE = [
   { label: 'Meses positivos', value: '12 de 12', gold: true },
 ];
 
-const STEPS = [
-  {
-    num: '01',
-    title: 'Adquira sua licença',
-    body: 'Escolha o plano adequado ao seu capital e perfil. Sem mensalidades ocultas — pagamento único anual.',
-  },
-  {
-    num: '02',
-    title: 'Abra sua conta',
-    body: 'Abrimos junto com você uma conta na Exness, uma das maiores corretoras reguladas do mundo. Seu capital permanece sob sua custódia em todo momento.',
-  },
-  {
-    num: '03',
-    title: 'Configuramos tudo',
-    body: 'Nossa equipe configura o sistema no servidor dedicado e valida a conexão. Você não precisa instalar, configurar ou entender nada técnico.',
-  },
-  {
-    num: '04',
-    title: 'Acompanhe e receba',
-    body: 'Acesse o dashboard em tempo real pelo celular. Receba um relatório mensal detalhado. O sistema trabalha — você acompanha.',
-  },
-];
-
 const PILLARS = [
   { label: 'Precisão', body: 'Prefere não operar a operar no momento errado' },
   { label: 'Transparência', body: 'Dados abertos. Metodologia auditável.' },
@@ -73,12 +53,26 @@ const PILLARS = [
 ];
 
 function App() {
+  const renderStepWorks = useMemo(
+    () =>
+      HOW_TO_WORK.map((work, index) => (
+        <StepWork
+          key={work.num}
+          number={work.num}
+          title={work.title}
+          description={work.body}
+          delay={index}
+        />
+      )),
+    [],
+  );
+
   return (
     <div id='main' className='min-h-screen bg-black text-white'>
       <Header />
 
       <AnimatedSection className='min-h-screen flex items-center pt-32 pb-20 px-6'>
-        <div className='max-w-5xl mx-auto w-full'>
+        <div className='max-w-6xl mx-auto w-full'>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +89,7 @@ function App() {
             className='text-6xl md:text-7xl font-light leading-[1.06] tracking-tight mb-6'
           >
             Desbrave novas fronteiras{' '}
-            <span className='text-[#c9a84c]'>do mercado financeiro</span>
+            <span className='text-orange-300'>do mercado financeiro</span>
           </motion.h1>
 
           <motion.p
@@ -140,12 +134,14 @@ function App() {
               label='Retorno 2025'
               decimals={1}
             />
+
             <StatCounter
               value={99.8}
               suffix='%'
               label='Taxa de Acerto'
               decimals={1}
             />
+
             <StatCounter
               value={2.61}
               suffix='%'
@@ -157,28 +153,30 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-16'>
-            <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-              O Sistema
-            </span>
+            <Chip label='O SISTEMA' />
+
             <h2 className='text-4xl md:text-5xl font-light mt-5 leading-tight'>
-              Construído para durar.
+              Construído para durar,
               <br />
-              Não para impressionar.
+              não para impressionar
             </h2>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-3xl overflow-hidden'>
+
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-2 rounded-3xl overflow-hidden'>
             <Feature
               title='Alta Seletividade'
               description='O sistema só opera quando múltiplas condições convergem simultaneamente. Prefere não entrar a entrar no momento errado.'
               icon={<TrendingUp className='w-10 h-10 text-white mb-6' />}
             />
+
             <Feature
               title='Proteção de Capital'
               description='Seis camadas independentes de gerenciamento de risco ativas em tempo real. O drawdown máximo de saldo em 2025 foi de 2,61%. menor que a variação de um dia típico.'
               icon={<Shield className='w-10 h-10 text-white mb-6' />}
             />
+
             <Feature
               title='100% Autônomo'
               description='Nenhuma ação necessária da sua parte. O Rage analisa, decide, executa e encerra as operações. Você acompanha pelo dashboard e recebe o relatório mensal.'
@@ -189,10 +187,8 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection id='performance' className='py-32 px-6'>
-        <div className='max-w-5xl mx-auto'>
-          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-            Resultados 2025
-          </span>
+        <div className='max-w-6xl mx-auto'>
+          <Chip label='RESULTADOS 2025' />
 
           <div className='grid md:grid-cols-2 gap-6 mt-10 items-stretch'>
             <motion.div
@@ -227,7 +223,7 @@ function App() {
                         {row.label}
                       </td>
                       <td
-                        className={`py-3 text-[0.88rem] font-medium text-right ${row.gold ? 'text-[#c9a84c]' : 'text-white'}`}
+                        className={`py-3 text-[0.88rem] font-medium text-right ${row.gold ? 'text-orange-300' : 'text-white'}`}
                       >
                         {row.value}
                       </td>
@@ -280,52 +276,36 @@ function App() {
         id='how'
         className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
       >
-        <div className='max-w-5xl mx-auto'>
-          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-            Como funciona
-          </span>
+        <div className='max-w-6xl mx-auto'>
+          <Chip label='COMO FUNCIONA' />
+
           <h2 className='text-4xl md:text-5xl font-light mt-5 mb-3 leading-tight'>
             Você aloca. Nós operamos.
           </h2>
+
           <p className='text-gray-400 max-w-lg leading-relaxed mb-12 text-[0.95rem]'>
             O processo de onboarding foi desenhado para ser simples. Em menos de
             48 horas, seu capital já está sendo operado pelo Rage.
           </p>
+
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
-            {STEPS.map((s, i) => (
-              <motion.div
-                key={s.num}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className='bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[rgba(201,168,76,0.25)] hover:-translate-y-1 transition-all duration-300'
-              >
-                <p className='text-[0.65rem] font-semibold uppercase tracking-widest text-[#c9a84c] mb-4'>
-                  {s.num}
-                </p>
-                <h3 className='text-[1rem] font-medium text-white mb-2'>
-                  {s.title}
-                </h3>
-                <p className='text-[0.85rem] text-gray-400 leading-relaxed'>
-                  {s.body}
-                </p>
-              </motion.div>
-            ))}
+            {renderStepWorks}
           </div>
         </div>
       </AnimatedSection>
 
       <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-light mb-4'>
               Foco em resultados
             </h2>
+
             <p className='text-xl text-gray-400 font-light max-w-2xl mx-auto'>
               Um sistema de trading pronto para escalar com você.
             </p>
           </div>
+
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -338,15 +318,18 @@ function App() {
                 title='Tecnologia Proprietária'
                 description='Algoritmos desenvolvidos do zero, sem dependência de terceiros. Arquitetura otimizada para performance e consistência.'
               />
+
               <Benefit
                 title='Solução Plug and Play'
                 description='Configuração rápida e integração simples. Comece a operar com eficiência desde o primeiro dia — sem configuração técnica da sua parte.'
               />
+
               <Benefit
                 title='Gestão de Risco Embutida'
                 description='Gestão de posições integrada ao sistema desde o início. Seis camadas de proteção independentes ativas em tempo real.'
               />
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -358,10 +341,12 @@ function App() {
                 title='Monitoramento em Tempo Real'
                 description='Acompanhe suas operações e resultados em tempo real com interface intuitiva e relatórios detalhados diretamente do seu celular.'
               />
+
               <Benefit
                 title='Análise Avançada'
                 description='Sistema de análise técnica e fundamental para identificar as melhores oportunidades de entrada no mercado de ouro.'
               />
+
               <Benefit
                 title='Suporte Especializado'
                 description='Equipe técnica disponível para auxiliar na configuração e otimização do seu sistema, com onboarding assistido incluído.'
@@ -372,7 +357,7 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection id='who-are-we' className='py-32 px-6'>
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-16 items-center'>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -381,20 +366,22 @@ function App() {
               transition={{ duration: 0.8 }}
             >
               <Users className='w-12 h-12 text-white mb-8' />
-              <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-                Quem somos
-              </span>
+
+              <Chip label='QUEM SOMOS' />
+
               <h2 className='text-4xl md:text-5xl font-light mt-5 mb-8'>
                 Engenharia financeira.
                 <br />
                 Obsessão com consistência.
               </h2>
+
               <div className='space-y-4 text-gray-400 leading-relaxed text-[0.95rem]'>
                 <p>
                   A Impulse Labs é a empresa por trás do Rage — um time de
                   engenheiros e analistas quantitativos com foco exclusivo em
                   sistemas autônomos para o mercado de ouro.
                 </p>
+
                 <p>
                   Não somos uma gestora tradicional. Somos um laboratório de
                   tecnologia financeira que passou mais de dois anos
@@ -402,18 +389,20 @@ function App() {
                   ele atingisse o padrão que consideramos aceitável para capital
                   de terceiros.
                 </p>
+
                 <p>
                   Esse padrão tem um nome: 99,80% de acerto. 2,61% de drawdown
                   máximo. 12 meses positivos consecutivos.
                 </p>
               </div>
+
               <div className='grid grid-cols-2 gap-3 mt-8'>
                 {PILLARS.map(p => (
                   <div
                     key={p.label}
                     className='bg-white/5 border border-white/10 rounded-xl p-4'
                   >
-                    <p className='text-[0.7rem] font-semibold uppercase tracking-widest text-[#c9a84c] mb-1'>
+                    <p className='text-[0.7rem] font-semibold uppercase tracking-widest text-orange-300 mb-1'>
                       {p.label}
                     </p>
                     <p className='text-[0.82rem] text-gray-400 leading-snug'>
@@ -432,22 +421,27 @@ function App() {
               className='bg-white/5 border border-white/10 rounded-3xl p-10 md:p-12'
             >
               <BarChart3 className='w-14 h-14 text-white mb-6' />
+
               <h3 className='text-2xl font-light text-white mb-4'>
                 Transformamos dados em disciplina
               </h3>
+
               <p className='text-gray-400 text-[0.93rem] leading-relaxed'>
                 O Rage não toma decisões com base em intuição. Analisa dezenas
                 de condições simultâneas antes de cada entrada — e quando elas
                 não convergem, ele simplesmente aguarda.
               </p>
+
               <p className='text-gray-500 text-[0.88rem] leading-relaxed mt-4'>
                 Essa disciplina de máquina — impossível para um ser humano
                 manter consistentemente — é o que explica os resultados de 2025.
               </p>
+
               <div className='mt-8 p-5 bg-[rgba(201,168,76,0.06)] border border-[rgba(201,168,76,0.15)] rounded-2xl'>
-                <p className='text-[0.7rem] uppercase tracking-widest text-[#c9a84c] mb-2'>
+                <p className='text-[0.7rem] uppercase tracking-widest text-orange-300 mb-2'>
                   Capital sob sua custódia
                 </p>
+
                 <p className='text-[0.88rem] text-gray-400 leading-relaxed'>
                   Seu dinheiro permanece na sua conta, na corretora regulada de
                   sua escolha. A Impulse Labs nunca tem acesso direto ao capital
@@ -463,11 +457,10 @@ function App() {
         id='pricing'
         className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'
       >
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-16'>
-            <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-              Planos e Licenças
-            </span>
+            <Chip label='PLANOS E LICENÇAS' />
+
             <h2 className='text-4xl md:text-5xl font-light mt-5 mb-4 text-white'>
               Escolha o plano para o seu perfil
             </h2>
@@ -476,6 +469,7 @@ function App() {
               regras.
             </p>
           </div>
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -495,6 +489,7 @@ function App() {
               </motion.div>
             ))}
           </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -515,10 +510,9 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection id='academy' className='py-32 px-6'>
-        <div className='max-w-5xl mx-auto'>
-          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
-            Rage Academy
-          </span>
+        <div className='max-w-6xl mx-auto'>
+          <Chip label='RAGE ACADEMY' />
+
           <div className='mt-6'>
             <AcademySection />
           </div>
@@ -527,18 +521,21 @@ function App() {
 
       <AnimatedSection className='py-32 px-6 text-center'>
         <div className='max-w-3xl mx-auto'>
-          <p className='text-[0.7rem] uppercase tracking-[0.2em] text-[#c9a84c] mb-5'>
+          <p className='text-[0.7rem] uppercase tracking-[0.2em] text-orange-300 mb-5'>
             Licenças disponíveis · Acesso imediato
           </p>
+
           <h2 className='text-5xl md:text-6xl font-light leading-[1.08] tracking-tight mb-5'>
             O ouro não espera.
             <br />
-            <span className='text-[#c9a84c]'>Você também não deveria.</span>
+            <span className='text-orange-300'>Você também não deveria.</span>
           </h2>
+
           <p className='text-[1rem] text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed'>
             Vagas limitadas para o ciclo 2026. Capital mínimo de $1.000. Seu
             capital permanece sob sua custódia em corretora regulada.
           </p>
+
           <div className='flex flex-wrap justify-center gap-4'>
             <button
               onClick={() => scrollTo('hire')}
@@ -546,6 +543,7 @@ function App() {
             >
               Adquirir Licença Agora
             </button>
+
             <button
               onClick={() => scrollTo('pricing')}
               className='border border-white/10 text-gray-400 px-8 py-4 rounded-full text-base cursor-pointer hover:border-white/20 hover:text-white transition-all duration-200'
@@ -553,6 +551,7 @@ function App() {
               Ver planos
             </button>
           </div>
+
           <p className='text-[0.75rem] text-gray-600 mt-5'>
             30 dias de garantia · Sem taxa sobre resultado · Sem mensalidade
           </p>
@@ -563,7 +562,7 @@ function App() {
         id='hire'
         className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
       >
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-12 items-start'>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -571,7 +570,7 @@ function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+              <span className='text-xs uppercase tracking-[0.18em] text-orange-300 bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
                 Adquirir Licença
               </span>
               <h2 className='text-4xl md:text-5xl font-light mt-5 mb-4 leading-tight'>

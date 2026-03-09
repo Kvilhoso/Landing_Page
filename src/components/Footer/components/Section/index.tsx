@@ -1,9 +1,6 @@
-import { memo, type PropsWithChildren } from 'react';
+import { memo } from 'react';
 import { scrollTo } from '@/utils';
-
-export interface FooterSectionProps extends PropsWithChildren {
-  id: string;
-}
+import type { FooterSectionProps } from '@/@types';
 
 function Section(props: FooterSectionProps) {
   const { id, children } = props;
