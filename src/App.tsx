@@ -79,13 +79,7 @@ function App() {
       <Header />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section
-        className='min-h-screen flex items-center pt-32 pb-20 px-6'
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%)',
-        }}
-      >
+      <AnimatedSection className='min-h-screen flex items-center pt-32 pb-20 px-6'>
         <div className='max-w-5xl mx-auto w-full'>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -163,10 +157,10 @@ function App() {
             />
           </motion.div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* ── FEATURES ──────────────────────────────────────────────────────── */}
-      <AnimatedSection className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
+      <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
             <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
@@ -255,7 +249,7 @@ function App() {
                 {MONTHLY_RESULTS.map(m => (
                   <div
                     key={m.month}
-                    className='bg-white/5 border border-white/[0.08] rounded-xl p-2.5 text-center hover:border-[rgba(201,168,76,0.25)] transition-colors'
+                    className='bg-white/5 border border-white/8 rounded-xl p-2.5 text-center hover:border-[rgba(201,168,76,0.25)] transition-colors'
                   >
                     <div className='text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1'>
                       {m.month}
@@ -292,7 +286,7 @@ function App() {
       {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
       <AnimatedSection
         id='how'
-        className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'
+        className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
       >
         <div className='max-w-5xl mx-auto'>
           <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
@@ -331,7 +325,7 @@ function App() {
       </AnimatedSection>
 
       {/* ── BENEFITS ──────────────────────────────────────────────────────── */}
-      <AnimatedSection className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
+      <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-light mb-4'>
@@ -478,7 +472,7 @@ function App() {
       {/* ── PRICING ───────────────────────────────────────────────────────── */}
       <AnimatedSection
         id='pricing'
-        className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'
+        className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'
       >
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
@@ -544,15 +538,7 @@ function App() {
       </AnimatedSection>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <AnimatedSection
-        className='py-32 px-6 text-center'
-        style={
-          {
-            backgroundImage:
-              'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%)',
-          } as React.CSSProperties
-        }
-      >
+      <AnimatedSection className='py-32 px-6 text-center'>
         <div className='max-w-3xl mx-auto'>
           <p className='text-[0.7rem] uppercase tracking-[0.2em] text-[#c9a84c] mb-5'>
             Licenças disponíveis · Acesso imediato
@@ -589,7 +575,7 @@ function App() {
       {/* ── HIRE / CONTACT ────────────────────────────────────────────────── */}
       <AnimatedSection
         id='hire'
-        className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'
+        className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
       >
         <div className='max-w-5xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-12 items-start'>

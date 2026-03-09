@@ -23,7 +23,7 @@ function PricingCard(props: PricingCardProps) {
       features.map((feature, index) => (
         <li key={index} className='flex items-start gap-3'>
           <Check
-            className={`size-5 flex-shrink-0 mt-0.5 ${highlightedPrimaryText}`}
+            className={`size-5 shrink-0 mt-0.5 ${highlightedPrimaryText}`}
           />
           <span
             className={`text-sm leading-relaxed ${
