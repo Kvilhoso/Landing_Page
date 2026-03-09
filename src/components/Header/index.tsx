@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scrollTo } from '@/utils';
@@ -9,11 +9,14 @@ import { Button } from './components';
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function onGoTo(id: string): void {
-    const wasOpen = isOpen;
-    setIsOpen(false);
-    setTimeout(() => scrollTo(id), wasOpen ? 300 : 0);
-  }
+  const onGoTo = useCallback(
+    (id: string): void => {
+      const wasOpen = isOpen;
+      setIsOpen(false);
+      setTimeout(() => scrollTo(id), wasOpen ? 300 : 0);
+    },
+    [isOpen],
+  );
 
   const renderIcon = useMemo(
     () =>
