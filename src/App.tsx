@@ -1,318 +1,403 @@
 import { motion } from 'framer-motion';
-import { TrendingUp, Shield, Users, BarChart3, HandCoins } from 'lucide-react';
+import { BarChart3, HandCoins, Shield, TrendingUp, Users } from 'lucide-react';
 import {
+  AcademySection,
   AnimatedSection,
   Benefit,
+  ContactForm,
   Feature,
   Footer,
   Header,
+  PerformanceChart,
   PricingCard,
+  StatCounter,
 } from './components';
-import { onContact, scrollTo } from './utils';
+import { scrollTo } from './utils';
 import { PLANS } from './constants';
 
+// ── Static data ───────────────────────────────────────────────────────────────
+const MONTHLY_RESULTS = [
+  { month: 'Jan', value: '+$573',   wr: '96%'  },
+  { month: 'Fev', value: '+$954',   wr: '100%' },
+  { month: 'Mar', value: '+$916',   wr: '100%' },
+  { month: 'Abr', value: '+$1.058', wr: '100%' },
+  { month: 'Mai', value: '+$687',   wr: '100%' },
+  { month: 'Jun', value: '+$1.187', wr: '100%' },
+  { month: 'Jul', value: '+$686',   wr: '100%' },
+  { month: 'Ago', value: '+$1.090', wr: '100%' },
+  { month: 'Set', value: '+$1.607', wr: '100%' },
+  { month: 'Out', value: '+$1.990', wr: '100%' },
+  { month: 'Nov', value: '+$1.980', wr: '100%' },
+  { month: 'Dez', value: '+$2.141', wr: '100%' },
+];
+
+const PERF_TABLE = [
+  { label: 'Retorno líquido',       value: '+97,8%',     gold: true  },
+  { label: 'Taxa de acerto',        value: '490 de 491', gold: false },
+  { label: 'Drawdown máx. saldo',   value: '2,61%',      gold: false },
+  { label: 'Índice de Sharpe',      value: '59,46',      gold: true  },
+  { label: 'Profit Factor',         value: '2,72',       gold: false },
+  { label: 'Fator de Recuperação',  value: '5,56',       gold: false },
+  { label: 'Total de operações',    value: '491 ciclos', gold: false },
+  { label: 'Meses positivos',       value: '12 de 12',   gold: true  },
+];
+
+const STEPS = [
+  { num: '01', title: 'Adquira sua licença',  body: 'Escolha o plano adequado ao seu capital e perfil. Sem mensalidades ocultas — pagamento único anual.' },
+  { num: '02', title: 'Abra sua conta',       body: 'Abrimos junto com você uma conta na Exness, uma das maiores corretoras reguladas do mundo. Seu capital permanece sob sua custódia em todo momento.' },
+  { num: '03', title: 'Configuramos tudo',    body: 'Nossa equipe configura o sistema no servidor dedicado e valida a conexão. Você não precisa instalar, configurar ou entender nada técnico.' },
+  { num: '04', title: 'Acompanhe e receba',   body: 'Acesse o dashboard em tempo real pelo celular. Receba um relatório mensal detalhado. O sistema trabalha — você acompanha.' },
+];
+
+const PILLARS = [
+  { label: 'Precisão',      body: 'Prefere não operar a operar no momento errado' },
+  { label: 'Transparência', body: 'Dados abertos. Metodologia auditável.' },
+  { label: 'Autonomia',     body: 'O sistema trabalha enquanto você vive' },
+  { label: 'Consistência',  body: 'Doze meses positivos. Não é sorte.' },
+];
+
+// ── App ───────────────────────────────────────────────────────────────────────
 function App() {
   return (
     <div id='main' className='min-h-screen bg-black text-white'>
       <Header />
 
-      <AnimatedSection className='pt-40 pb-32 px-6'>
-        <div className='max-w-5xl mx-auto'>
-          <div className='text-center mb-12'>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className='inline-block mb-8'
-            >
-              <span className='text-xs uppercase tracking-wider text-gray-400 font-medium'>
-                Tecnologia de Ponta
-              </span>
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className='text-6xl md:text-7xl font-light mb-8 leading-tight'
-            >
-              Desbrave novas fronteiras do mercado financeiro
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className='text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed'
-            >
-              Automatizando seus investimentos com o algoritmo mais inteligente
-              do mercado.
-            </motion.p>
-          </div>
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section
+        className='min-h-screen flex items-center pt-32 pb-20 px-6'
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%)' }}
+      >
+        <div className='max-w-5xl mx-auto w-full'>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+            className='text-xs uppercase tracking-[0.2em] text-gray-500 mb-6'
+          >
+            Tecnologia de alta performance.
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
+            className='text-6xl md:text-7xl font-light leading-[1.06] tracking-tight mb-6'
+          >
+            Desbrave novas fronteiras{' '}
+            <span className='text-[#c9a84c]'>do mercado financeiro</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }}
+            className='text-lg md:text-xl text-gray-400 font-light max-w-2xl leading-relaxed mb-10'
+          >
+            O Rage opera o mercado de ouro 24 horas por dia, 5 dias por semana, de forma completamente autônoma.
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-24'
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}
+            className='flex flex-wrap gap-4 mb-20'
           >
-            <Feature
-              title='Alta Performance'
-              description='Estratégia otimizada para captar lucros nas menores movimentações do mercado.'
-              icon={<TrendingUp className='w-10 h-10 text-white mb-6' />}
-            />
+            <button
+              onClick={() => scrollTo('hire')}
+              className='bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.1)] transition-all duration-200'
+            >
+              Adquirir Licença
+            </button>
+            <button
+              onClick={() => scrollTo('performance')}
+              className='border border-white/10 text-gray-400 px-8 py-4 rounded-full text-base cursor-pointer hover:border-white/20 hover:text-white transition-all duration-200'
+            >
+              Ver resultados →
+            </button>
+          </motion.div>
 
-            <Feature
-              title='Preservação de Capital'
-              description='Algoritmo treinado para arriscar somente quando necessário.'
-              icon={<Shield className='w-10 h-10 text-white mb-6' />}
-            />
-
-            <Feature
-              title='100% Automático'
-              description='O poder financeiro na palma da sua mão.'
-              icon={<HandCoins className='w-10 h-10 text-white mb-6' />}
-            />
+          {/* Stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
+            className='grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 rounded-3xl overflow-hidden bg-white/5'
+          >
+            <StatCounter value={97.8}  suffix='%' label='Retorno 2025'    decimals={1} />
+            <StatCounter value={99.8}  suffix='%' label='Taxa de Acerto'  decimals={1} />
+            <StatCounter value={2.61}  suffix='%' label='Drawdown Máximo' decimals={2} />
           </motion.div>
         </div>
-      </AnimatedSection>
+      </section>
 
+      {/* ── FEATURES ──────────────────────────────────────────────────────── */}
       <AnimatedSection className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
-          <div className='text-center mb-20'>
-            <h2 className='text-4xl md:text-5xl font-light mb-6'>
-              Foco em resultados
+          <div className='text-center mb-16'>
+            <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+              O Sistema
+            </span>
+            <h2 className='text-4xl md:text-5xl font-light mt-5 leading-tight'>
+              Construído para durar.<br />Não para impressionar.
             </h2>
-
-            <p className='text-xl text-gray-400 font-light max-w-2xl mx-auto'>
-              Um sistema de trading pronto para escalar com você.
-            </p>
           </div>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-3xl overflow-hidden'>
+            <Feature
+              title='Alta Seletividade'
+              description='O sistema só opera quando múltiplas condições convergem simultaneamente. Prefere não entrar a entrar no momento errado.'
+              icon={<TrendingUp className='w-10 h-10 text-white mb-6' />}
+            />
+            <Feature
+              title='Proteção de Capital'
+              description='Seis camadas independentes de gerenciamento de risco ativas em tempo real. O drawdown máximo de saldo em 2025 foi de 2,61%. menor que a variação de um dia típico.'
+              icon={<Shield className='w-10 h-10 text-white mb-6' />}
+            />
+            <Feature
+              title='100% Autônomo'
+              description='Nenhuma ação necessária da sua parte. O Rage analisa, decide, executa e encerra as operações. Você acompanha pelo dashboard e recebe o relatório mensal.'
+              icon={<HandCoins className='w-10 h-10 text-white mb-6' />}
+            />
+          </div>
+        </div>
+      </AnimatedSection>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+      {/* ── PERFORMANCE ───────────────────────────────────────────────────── */}
+      <AnimatedSection id='performance' className='py-32 px-6'>
+        <div className='max-w-5xl mx-auto'>
+          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+            Resultados 2025
+          </span>
+
+          <div className='grid md:grid-cols-2 gap-6 mt-10 items-stretch'>
+            {/* Left — metrics + monthly grid */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className='flex flex-col justify-between space-y-6'
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className='bg-white/5 border border-white/10 rounded-3xl p-7 flex flex-col'
             >
-              <Benefit
-                title='Tecnologia Proprietária'
-                description='Algoritmos desenvolvidos do zero, sem dependência de terceiros. Arquitetura otimizada para performance.'
-              />
+              <h2 className='text-4xl md:text-5xl font-light leading-tight mb-6'>
+                Doze meses.<br />Zero meses<br />negativos.
+              </h2>
+              <p className='text-gray-400 leading-relaxed mb-8 text-[0.95rem]'>
+                2025 foi o primeiro ano completo do Rage em operação — com dados verificáveis, metodologia auditável
+                e resultados documentados mês a mês. Nenhuma métrica foi escolhida para parecer melhor do que é.
+              </p>
 
-              <Benefit
-                title='Solução Plug and Play'
-                description='Configuração rápida e integração simples. Comece a operar com eficiência desde o primeiro dia.'
-              />
+              <table className='w-full mb-8'>
+                <tbody>
+                  {PERF_TABLE.map(row => (
+                    <tr key={row.label} className='border-b border-white/[0.07] last:border-0'>
+                      <td className='py-3 text-[0.88rem] text-gray-400'>{row.label}</td>
+                      <td className={`py-3 text-[0.88rem] font-medium text-right ${row.gold ? 'text-[#c9a84c]' : 'text-white'}`}>{row.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
 
-              <Benefit
-                title='Gestão de Risco Embutida'
-                description='Gestão de posições já integrados ao sistema desde o início.'
-              />
+              <p className='text-[0.7rem] uppercase tracking-widest text-gray-500 mb-4'>Resultado por mês · 2025</p>
+              <div className='grid grid-cols-4 gap-2'>
+                {MONTHLY_RESULTS.map(m => (
+                  <div key={m.month} className='bg-white/5 border border-white/[0.08] rounded-xl p-2.5 text-center hover:border-[rgba(201,168,76,0.25)] transition-colors'>
+                    <div className='text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1'>{m.month}</div>
+                    <div className='text-[0.88rem] font-medium text-[#e2c97e]'>{m.value}</div>
+                    <div className='text-[0.62rem] text-gray-600 mt-0.5'>{m.wr}</div>
+                  </div>
+                ))}
+              </div>
+              <p className='text-[0.72rem] text-gray-600 mt-4 leading-relaxed'>
+                Backtest com dados reais de tick (qualidade 99,9%), capital inicial de $10.000, período Jan–Dez 2025.
+              </p>
             </motion.div>
 
+            {/* Right — chart */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className='flex flex-col justify-between space-y-6'
+              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}
+              className='flex flex-col'
             >
-              <Benefit
-                title='Monitoramento em Tempo Real'
-                description='Acompanhe suas operações e resultados em tempo real com interface intuitiva e relatórios detalhados diretamente do seu celular.'
-              />
-
-              <Benefit
-                title='Análise Avançada'
-                description='Sistema de análise técnica e fundamental para identificar as melhores oportunidades de entrada.'
-              />
-
-              <Benefit
-                title='Suporte Especializado'
-                description='Equipe técnica disponível para auxiliar na configuração e otimização do seu algoritmo.'
-              />
+              <PerformanceChart />
             </motion.div>
           </div>
         </div>
       </AnimatedSection>
 
+      {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
+      <AnimatedSection id='how' className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'>
+        <div className='max-w-5xl mx-auto'>
+          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+            Como funciona
+          </span>
+          <h2 className='text-4xl md:text-5xl font-light mt-5 mb-3 leading-tight'>Você aloca. Nós operamos.</h2>
+          <p className='text-gray-400 max-w-lg leading-relaxed mb-12 text-[0.95rem]'>
+            O processo de onboarding foi desenhado para ser simples. Em menos de 48 horas, seu capital já está sendo operado pelo Rage.
+          </p>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+            {STEPS.map((s, i) => (
+              <motion.div
+                key={s.num}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className='bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[rgba(201,168,76,0.25)] hover:-translate-y-1 transition-all duration-300'
+              >
+                <p className='text-[0.65rem] font-semibold uppercase tracking-widest text-[#c9a84c] mb-4'>{s.num}</p>
+                <h3 className='text-[1rem] font-medium text-white mb-2'>{s.title}</h3>
+                <p className='text-[0.85rem] text-gray-400 leading-relaxed'>{s.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ── BENEFITS ──────────────────────────────────────────────────────── */}
+      <AnimatedSection className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
+        <div className='max-w-5xl mx-auto'>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl md:text-5xl font-light mb-4'>Foco em resultados</h2>
+            <p className='text-xl text-gray-400 font-light max-w-2xl mx-auto'>Um sistema de trading pronto para escalar com você.</p>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className='flex flex-col justify-between space-y-6'>
+              <Benefit title='Tecnologia Proprietária'   description='Algoritmos desenvolvidos do zero, sem dependência de terceiros. Arquitetura otimizada para performance e consistência.' />
+              <Benefit title='Solução Plug and Play'     description='Configuração rápida e integração simples. Comece a operar com eficiência desde o primeiro dia — sem configuração técnica da sua parte.' />
+              <Benefit title='Gestão de Risco Embutida' description='Gestão de posições integrada ao sistema desde o início. Seis camadas de proteção independentes ativas em tempo real.' />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className='flex flex-col justify-between space-y-6'>
+              <Benefit title='Monitoramento em Tempo Real' description='Acompanhe suas operações e resultados em tempo real com interface intuitiva e relatórios detalhados diretamente do seu celular.' />
+              <Benefit title='Análise Avançada'            description='Sistema de análise técnica e fundamental para identificar as melhores oportunidades de entrada no mercado de ouro.' />
+              <Benefit title='Suporte Especializado'       description='Equipe técnica disponível para auxiliar na configuração e otimização do seu sistema, com onboarding assistido incluído.' />
+            </motion.div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ── WHO WE ARE ────────────────────────────────────────────────────── */}
       <AnimatedSection id='who-are-we' className='py-32 px-6'>
         <div className='max-w-5xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-16 items-center'>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className='mb-8'>
-                <Users className='w-12 h-12 text-white' />
-              </div>
-
-              <h2 className='text-4xl md:text-5xl font-light mb-8'>
-                Quem Somos
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <Users className='w-12 h-12 text-white mb-8' />
+              <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+                Quem somos
+              </span>
+              <h2 className='text-4xl md:text-5xl font-light mt-5 mb-8'>
+                Engenharia financeira.<br />Obsessão com consistência.
               </h2>
-
-              <div className='space-y-6 text-gray-400 leading-relaxed'>
-                <p>
-                  A projeKt Rage é uma empresa especializada em soluções de
-                  trading automatizado, focada no mercado de metais preciosos,
-                  especialmente o par XAUUSD.
-                </p>
-                <p>
-                  Nossa equipe é composta por traders profissionais,
-                  desenvolvedores e analistas quantitativos com mais de 10 anos
-                  de experiência combinada nos mercados financeiros.
-                </p>
-                <p>
-                  Desenvolvemos algoritmos proprietários que analisam milhares
-                  de dados em tempo real para identificar as melhores
-                  oportunidades de trading. Nosso algoritmo foi testado
-                  extensivamente em diferentes condições de mercado.
-                </p>
+              <div className='space-y-4 text-gray-400 leading-relaxed text-[0.95rem]'>
+                <p>A Impulse Labs é a empresa por trás do Rage — um time de engenheiros e analistas quantitativos com foco exclusivo em sistemas autônomos para o mercado de ouro.</p>
+                <p>Não somos uma gestora tradicional. Somos um laboratório de tecnologia financeira que passou mais de dois anos construindo, testando e refinando um único produto — até que ele atingisse o padrão que consideramos aceitável para capital de terceiros.</p>
+                <p>Esse padrão tem um nome: 99,80% de acerto. 2,61% de drawdown máximo. 12 meses positivos consecutivos.</p>
+              </div>
+              <div className='grid grid-cols-2 gap-3 mt-8'>
+                {PILLARS.map(p => (
+                  <div key={p.label} className='bg-white/5 border border-white/10 rounded-xl p-4'>
+                    <p className='text-[0.7rem] font-semibold uppercase tracking-widest text-[#c9a84c] mb-1'>{p.label}</p>
+                    <p className='text-[0.82rem] text-gray-400 leading-snug'>{p.body}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='bg-white/5 border border-white/10 rounded-3xl p-12 text-center'
-            >
-              <BarChart3 className='w-16 h-16 text-white mx-auto mb-6' />
-
-              <h3 className='text-2xl font-light mb-4'>
-                Transformamos dados em lucros
-              </h3>
-
-              <p className='text-gray-400 text-base'>
-                Acreditamos que a tecnologia pode democratizar o acesso a
-                estratégias de investimento sofisticadas.
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className='bg-white/5 border border-white/10 rounded-3xl p-10 md:p-12'>
+              <BarChart3 className='w-14 h-14 text-white mb-6' />
+              <h3 className='text-2xl font-light text-white mb-4'>Transformamos dados em disciplina</h3>
+              <p className='text-gray-400 text-[0.93rem] leading-relaxed'>
+                O Rage não toma decisões com base em intuição. Analisa dezenas de condições simultâneas antes de cada entrada — e quando elas não convergem, ele simplesmente aguarda.
               </p>
+              <p className='text-gray-500 text-[0.88rem] leading-relaxed mt-4'>
+                Essa disciplina de máquina — impossível para um ser humano manter consistentemente — é o que explica os resultados de 2025.
+              </p>
+              <div className='mt-8 p-5 bg-[rgba(201,168,76,0.06)] border border-[rgba(201,168,76,0.15)] rounded-2xl'>
+                <p className='text-[0.7rem] uppercase tracking-widest text-[#c9a84c] mb-2'>Capital sob sua custódia</p>
+                <p className='text-[0.88rem] text-gray-400 leading-relaxed'>
+                  Seu dinheiro permanece na sua conta, na corretora regulada de sua escolha. A Impulse Labs nunca tem acesso direto ao capital — apenas ao sistema de trading.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
       </AnimatedSection>
 
-      <AnimatedSection
-        id='pricing'
-        className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'
-      >
+      {/* ── PRICING ───────────────────────────────────────────────────────── */}
+      <AnimatedSection id='pricing' className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
-          <div className='text-center mb-20'>
-            <div className='inline-block mb-6'>
-              <span className='text-xs uppercase tracking-wider text-gray-400 font-medium'>
-                Planos e Preços
-              </span>
-            </div>
-
-            <h2 className='text-4xl md:text-5xl font-light mb-6 text-white'>
-              Escolha o plano ideal para você
-            </h2>
-
+          <div className='text-center mb-16'>
+            <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+              Planos e Licenças
+            </span>
+            <h2 className='text-4xl md:text-5xl font-light mt-5 mb-4 text-white'>Escolha o plano para o seu perfil</h2>
             <p className='text-xl text-gray-400 font-light max-w-2xl mx-auto'>
-              Algoritmos profissionais de trading automatizado adaptados ao seu
-              perfil de investimento
+              Licença anual. Sem taxas sobre resultado. Seu capital, suas regras.
             </p>
           </div>
-
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className='grid grid-cols-1 md:grid-cols-2 gap-6'
           >
             {PLANS.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
+              <motion.div key={index} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.08 }}>
                 <PricingCard {...plan} />
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className='mt-16 text-center'
-          >
-            <p className='text-sm text-gray-400'>
-              Todos os planos incluem 30 dias de garantia. Dúvidas?{' '}
-              <button
-                className='text-white cursor-pointer hover:underline'
-                onClick={() => scrollTo('hire')}
-              >
-                Entre em contato
-              </button>
-            </p>
-          </motion.div>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className='text-sm text-gray-500 text-center mt-10'>
+            Todos os planos incluem 30 dias de garantia. Capital sob sua custódia em corretora regulada.{' '}
+            <button className='text-white cursor-pointer hover:underline' onClick={() => scrollTo('hire')}>Dúvidas? Fale conosco.</button>
+          </motion.p>
         </div>
       </AnimatedSection>
 
-      <AnimatedSection
-        id='hire'
-        className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'
-      >
+      {/* ── ACADEMY ───────────────────────────────────────────────────────── */}
+      <AnimatedSection id='academy' className='py-32 px-6'>
         <div className='max-w-5xl mx-auto'>
-          <div className='grid md:grid-cols-2 gap-12 items-center'>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className='mb-6'>
-                <span className='text-xs uppercase tracking-wider text-gray-400 font-medium'>
-                  Comece Agora
-                </span>
-              </div>
+          <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+            Rage Academy
+          </span>
+          <div className='mt-6'>
+            <AcademySection />
+          </div>
+        </div>
+      </AnimatedSection>
 
-              <h2 className='text-4xl md:text-5xl font-light mb-8 leading-tight'>
-                Pronto para começar?
-              </h2>
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      <AnimatedSection
+        className='py-32 px-6 text-center'
+        style={{ backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.07) 0%, transparent 70%)' } as React.CSSProperties}
+      >
+        <div className='max-w-3xl mx-auto'>
+          <p className='text-[0.7rem] uppercase tracking-[0.2em] text-[#c9a84c] mb-5'>Licenças disponíveis · Acesso imediato</p>
+          <h2 className='text-5xl md:text-6xl font-light leading-[1.08] tracking-tight mb-5'>
+            O ouro não espera.<br />
+            <span className='text-[#c9a84c]'>Você também não deveria.</span>
+          </h2>
+          <p className='text-[1rem] text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed'>
+            Vagas limitadas para o ciclo 2026. Capital mínimo de $1.000. Seu capital permanece sob sua custódia em corretora regulada.
+          </p>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <button onClick={() => scrollTo('hire')} className='bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 hover:-translate-y-0.5 transition-all duration-200'>
+              Adquirir Licença Agora
+            </button>
+            <button onClick={() => scrollTo('pricing')} className='border border-white/10 text-gray-400 px-8 py-4 rounded-full text-base cursor-pointer hover:border-white/20 hover:text-white transition-all duration-200'>
+              Ver planos
+            </button>
+          </div>
+          <p className='text-[0.75rem] text-gray-600 mt-5'>30 dias de garantia · Sem taxa sobre resultado · Sem mensalidade</p>
+        </div>
+      </AnimatedSection>
 
-              <p className='text-lg text-gray-400 mb-10 leading-relaxed'>
-                Entre em contato conosco e receba orientações personalizadas
-                sobre como adquirir e configurar seu algoritmo.
+      {/* ── HIRE / CONTACT ────────────────────────────────────────────────── */}
+      <AnimatedSection id='hire' className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'>
+        <div className='max-w-5xl mx-auto'>
+          <div className='grid md:grid-cols-2 gap-12 items-start'>
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
+                Adquirir Licença
+              </span>
+              <h2 className='text-4xl md:text-5xl font-light mt-5 mb-4 leading-tight'>Pronto para começar?</h2>
+              <p className='text-gray-400 leading-relaxed mb-8 text-[0.95rem]'>
+                Entre em contato e nossa equipe vai orientar você sobre o plano ideal para o seu perfil e capital disponível.
               </p>
-              <button
-                rel='noopener noreferrer'
-                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200'
-                onClick={onContact}
-                // Remove disabled in the future
-                disabled
-              >
-                Contratar
-              </button>
+              <div className='space-y-4'>
+                {[
+                  ['✉', 'contato@projektrage.com.br'],
+                  ['◎', 'Atendimento em até 24 horas'],
+                  ['◈', 'Onboarding assistido incluído em todos os planos'],
+                ].map(([icon, text]) => (
+                  <div key={text} className='flex items-center gap-3 text-[0.9rem] text-gray-400'>
+                    <span>{icon}</span><span>{text}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='relative'
-            >
-              <div className='aspect-video rounded-2xl overflow-hidden border border-white/10'>
-                {/* Add video in the future */}
-                <video
-                  className='w-full h-full object-cover bg-zinc-900'
-                  controls
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23000000' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFFFFF' font-size='32' font-family='system-ui, sans-serif' dy='.3em'%Algoritmo em Ação%3C/text%3E%3C/svg%3E"
-                >
-                  <source src='seu_video_aqui.mp4' type='video/mp4' />
-                  Seu navegador não suporta vídeos.
-                </video>
-              </div>
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }}>
+              <ContactForm />
             </motion.div>
           </div>
         </div>

@@ -1,75 +1,56 @@
 import { memo } from 'react';
-import { onContact, scrollTo } from '@/utils';
+import { scrollTo } from '@/utils';
 
 const currentYear = new Date().getFullYear();
+
+const NAV_LINKS = [
+  { label: 'Resultados',    id: 'performance' },
+  { label: 'Como funciona', id: 'how'         },
+  { label: 'Academy',       id: 'academy'     },
+  { label: 'Quem somos',   id: 'who-are-we'  },
+  { label: 'Planos',        id: 'pricing'     },
+];
 
 function Footer() {
   return (
     <footer className='py-20 px-6 border-t border-white/10'>
       <div className='max-w-5xl mx-auto'>
-        <div className='grid md:grid-cols-2 gap-12 mb-16'>
-          <div>
-            <h2 className='text-3xl md:text-4xl font-light mb-6'>
-              projeKt Rage
-            </h2>
-            <p className='text-gray-400 text-sm leading-relaxed max-w-md'>
-              Tecnologia proprietária para automatizar seus investimentos com
-              segurança e escalabilidade.
+        <div className='grid md:grid-cols-3 gap-12 mb-16'>
+          <div className='md:col-span-1'>
+            <h2 className='text-2xl md:text-3xl font-light mb-4'>projeKt Rage</h2>
+            <p className='text-gray-400 text-sm leading-relaxed max-w-xs'>
+              Sistema autônomo de trading para o mercado de ouro. Tecnologia proprietária desenvolvida pela Impulse Labs.
             </p>
           </div>
 
-          <div className='grid grid-cols-2 gap-8'>
-            <div>
-              <h3 className='text-sm font-medium mb-4 text-gray-300'>
-                Navegação
-              </h3>
-              <ul className='space-y-3'>
-                <li>
-                  <button
-                    onClick={() => scrollTo('who-are-we')}
-                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
-                  >
-                    Quem somos
+          <div>
+            <h3 className='text-sm font-medium mb-4 text-gray-300'>Navegação</h3>
+            <ul className='space-y-3'>
+              {NAV_LINKS.map(l => (
+                <li key={l.id}>
+                  <button onClick={() => scrollTo(l.id)} className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'>
+                    {l.label}
                   </button>
                 </li>
-                <li>
-                  <button
-                    onClick={onContact}
-                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
-                    // Remove disabled in the future
-                    disabled
-                  >
-                    Contratar
-                  </button>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <h3 className='text-sm font-medium mb-4 text-gray-300'>
-                Contato
-              </h3>
-              <ul className='space-y-3'>
-                <li>
-                  <button
-                    rel='noopener noreferrer'
-                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
-                    onClick={onContact}
-                    // Remove disabled in the future
-                    disabled
-                  >
-                    Suporte
-                  </button>
-                </li>
-              </ul>
-            </div>
+          <div>
+            <h3 className='text-sm font-medium mb-4 text-gray-300'>Legal</h3>
+            <ul className='space-y-3 text-gray-400 text-sm'>
+              <li className='cursor-pointer hover:text-white transition-colors'>Termos de Uso</li>
+              <li className='cursor-pointer hover:text-white transition-colors'>Política de Privacidade</li>
+              <li className='cursor-pointer hover:text-white transition-colors'>Aviso de Risco</li>
+            </ul>
+            <h3 className='text-sm font-medium mt-6 mb-3 text-gray-300'>Contato</h3>
+            <p className='text-gray-400 text-sm'>contato@projektrage.com.br</p>
           </div>
         </div>
 
-        <div className='pt-8 border-t border-white/10'>
-          <p className='text-gray-500 text-xs text-center'>
-            © {currentYear} projeKt Rage. Todos os direitos reservados.
-          </p>
+        <div className='pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3'>
+          <p className='text-gray-500 text-xs'>© {currentYear} projeKt Rage · Impulse Labs. Todos os direitos reservados.</p>
+          <p className='text-gray-600 text-xs'>Resultados passados não garantem resultados futuros.</p>
         </div>
       </div>
     </footer>
