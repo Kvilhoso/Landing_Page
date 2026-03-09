@@ -72,13 +72,11 @@ const PILLARS = [
   { label: 'Consistência', body: 'Doze meses positivos. Não é sorte.' },
 ];
 
-// ── App ───────────────────────────────────────────────────────────────────────
 function App() {
   return (
     <div id='main' className='min-h-screen bg-black text-white'>
       <Header />
 
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <AnimatedSection className='min-h-screen flex items-center pt-32 pb-20 px-6'>
         <div className='max-w-5xl mx-auto w-full'>
           <motion.p
@@ -130,7 +128,6 @@ function App() {
             </button>
           </motion.div>
 
-          {/* Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,7 +156,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── FEATURES ──────────────────────────────────────────────────────── */}
       <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
@@ -192,7 +188,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── PERFORMANCE ───────────────────────────────────────────────────── */}
       <AnimatedSection id='performance' className='py-32 px-6'>
         <div className='max-w-5xl mx-auto'>
           <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
@@ -200,7 +195,6 @@ function App() {
           </span>
 
           <div className='grid md:grid-cols-2 gap-6 mt-10 items-stretch'>
-            {/* Left — metrics + monthly grid */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -269,7 +263,6 @@ function App() {
               </p>
             </motion.div>
 
-            {/* Right — chart */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -283,7 +276,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
       <AnimatedSection
         id='how'
         className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
@@ -324,7 +316,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── BENEFITS ──────────────────────────────────────────────────────── */}
       <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
@@ -380,7 +371,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── WHO WE ARE ────────────────────────────────────────────────────── */}
       <AnimatedSection id='who-are-we' className='py-32 px-6'>
         <div className='max-w-5xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-16 items-center'>
@@ -469,7 +459,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── PRICING ───────────────────────────────────────────────────────── */}
       <AnimatedSection
         id='pricing'
         className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'
@@ -525,7 +514,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── ACADEMY ───────────────────────────────────────────────────────── */}
       <AnimatedSection id='academy' className='py-32 px-6'>
         <div className='max-w-5xl mx-auto'>
           <span className='text-xs uppercase tracking-[0.18em] text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.2)] px-3 py-1.5 rounded-full'>
@@ -537,7 +525,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <AnimatedSection className='py-32 px-6 text-center'>
         <div className='max-w-3xl mx-auto'>
           <p className='text-[0.7rem] uppercase tracking-[0.2em] text-[#c9a84c] mb-5'>
@@ -572,7 +559,6 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── HIRE / CONTACT ────────────────────────────────────────────────── */}
       <AnimatedSection
         id='hire'
         className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
