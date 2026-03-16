@@ -11,47 +11,18 @@ import {
   Feature,
   Footer,
   Header,
-  PerformanceChart,
   PricingCard,
   StatCounter,
   StepWork,
 } from './components';
 import { scrollTo } from './utils';
-import { HOW_TO_WORK, PLANS } from './constants';
-
-// ── Static data ───────────────────────────────────────────────────────────────
-const MONTHLY_RESULTS = [
-  { month: 'Jan', value: '+$573', wr: '96%' },
-  { month: 'Fev', value: '+$954', wr: '100%' },
-  { month: 'Mar', value: '+$916', wr: '100%' },
-  { month: 'Abr', value: '+$1.058', wr: '100%' },
-  { month: 'Mai', value: '+$687', wr: '100%' },
-  { month: 'Jun', value: '+$1.187', wr: '100%' },
-  { month: 'Jul', value: '+$686', wr: '100%' },
-  { month: 'Ago', value: '+$1.090', wr: '100%' },
-  { month: 'Set', value: '+$1.607', wr: '100%' },
-  { month: 'Out', value: '+$1.990', wr: '100%' },
-  { month: 'Nov', value: '+$1.980', wr: '100%' },
-  { month: 'Dez', value: '+$2.141', wr: '100%' },
-];
-
-const PERF_TABLE = [
-  { label: 'Retorno líquido', value: '+97,8%', gold: true },
-  { label: 'Taxa de acerto', value: '490 de 491', gold: false },
-  { label: 'Drawdown máx. saldo', value: '2,61%', gold: false },
-  { label: 'Índice de Sharpe', value: '59,46', gold: true },
-  { label: 'Profit Factor', value: '2,72', gold: false },
-  { label: 'Fator de Recuperação', value: '5,56', gold: false },
-  { label: 'Total de operações', value: '491 ciclos', gold: false },
-  { label: 'Meses positivos', value: '12 de 12', gold: true },
-];
-
-const PILLARS = [
-  { label: 'Precisão', body: 'Prefere não operar a operar no momento errado' },
-  { label: 'Transparência', body: 'Dados abertos. Metodologia auditável.' },
-  { label: 'Autonomia', body: 'O sistema trabalha enquanto você vive' },
-  { label: 'Consistência', body: 'Doze meses positivos. Não é sorte.' },
-];
+import {
+  HOW_TO_WORK,
+  MONTHLY_RESULTS,
+  PERFORMANCE,
+  PLANS,
+  PILLARS,
+} from './constants';
 
 function App() {
   const renderStepWorks = useMemo(
@@ -195,12 +166,10 @@ function App() {
               <h2 className='text-4xl md:text-5xl font-light leading-tight mb-6'>
                 Doze meses.
                 <br />
-                Zero meses
-                <br />
-                negativos.
+                Zero meses negativos.
               </h2>
               <p className='text-gray-400 leading-relaxed mb-8 text-[0.95rem]'>
-                2025 foi o primeiro ano completo do Rage em operação — com dados
+                2025 foi o primeiro ano completo do Rage em operação com dados
                 verificáveis, metodologia auditável e resultados documentados
                 mês a mês. Nenhuma métrica foi escolhida para parecer melhor do
                 que é.
@@ -208,16 +177,16 @@ function App() {
 
               <table className='w-full mb-8'>
                 <tbody>
-                  {PERF_TABLE.map(row => (
+                  {PERFORMANCE.map(row => (
                     <tr
                       key={row.label}
-                      className='border-b border-white/[0.07] last:border-0'
+                      className='border-b border-white/5 last:border-0'
                     >
                       <td className='py-3 text-[0.88rem] text-gray-400'>
                         {row.label}
                       </td>
                       <td
-                        className={`py-3 text-[0.88rem] font-medium text-right ${row.gold ? 'text-orange-300' : 'text-white'}`}
+                        className={`py-3 text-[0.88rem] font-medium text-right ${row.highlighted ? 'text-orange-300' : 'text-white'}`}
                       >
                         {row.value}
                       </td>
@@ -229,16 +198,16 @@ function App() {
               <p className='text-[0.7rem] uppercase tracking-widest text-gray-500 mb-4'>
                 Resultado por mês · 2025
               </p>
-              <div className='grid grid-cols-4 gap-2'>
+              <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2'>
                 {MONTHLY_RESULTS.map(m => (
                   <div
                     key={m.month}
-                    className='bg-white/5 border border-white/8 rounded-xl p-2.5 text-center hover:border-[rgba(201,168,76,0.25)] transition-colors'
+                    className='bg-white/5 border border-white/8 rounded-xl p-2.5 text-center hover:border-orange-900 duration-300 transition-colors'
                   >
                     <div className='text-[0.65rem] uppercase tracking-widest text-gray-500 mb-1'>
                       {m.month}
                     </div>
-                    <div className='text-[0.88rem] font-medium text-[#e2c97e]'>
+                    <div className='text-[0.88rem] font-medium text-orange-300'>
                       {m.value}
                     </div>
                     <div className='text-[0.62rem] text-gray-600 mt-0.5'>
@@ -251,16 +220,6 @@ function App() {
                 Backtest com dados reais de tick (qualidade 99,9%), capital
                 inicial de $10.000, período Jan–Dez 2025.
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className='flex flex-col'
-            >
-              <PerformanceChart />
             </motion.div>
           </div>
         </div>

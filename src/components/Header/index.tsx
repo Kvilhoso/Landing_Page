@@ -63,7 +63,7 @@ function Header() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className='backdrop-blur-2xl fixed lg:top-6 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-50 w-full lg:w-11/12 max-w-6xl'
+      className='backdrop-blur-2xl fixed lg:rounded-full lg:top-6 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-50 w-full lg:w-11/12 max-w-6xl'
     >
       <nav className='bg-white/5 lg:rounded-full px-8 py-4 lg:shadow-2xl lg:border lg:border-white/10'>
         <div className='flex justify-between items-center'>

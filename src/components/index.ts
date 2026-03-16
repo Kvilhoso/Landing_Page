@@ -7,7 +7,6 @@ export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as PricingCard } from './PricingCard';
 export { default as StatCounter } from './StatCounter';
-export { default as PerformanceChart } from './PerformanceChart';
 export { default as AcademySection } from './AcademySection';
 export { default as ContactForm } from './ContactForm';
 export { default as StepWork } from './StepWork';
