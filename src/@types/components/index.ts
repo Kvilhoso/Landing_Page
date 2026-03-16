@@ -1,5 +1,6 @@
 export * from './AnimatedSection';
 export * from './Benefit';
+export * from './Button';
 export * from './Chip';
 export * from './Feature';
 export * from './Footer';

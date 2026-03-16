@@ -5,6 +5,7 @@ import {
   AcademySection,
   AnimatedSection,
   Benefit,
+  Button,
   Chip,
   ContactForm,
   Feature,
@@ -108,18 +109,11 @@ function App() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className='flex flex-wrap gap-4 mb-20'
           >
-            <button
-              onClick={() => scrollTo('hire')}
-              className='bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,255,255,0.1)] transition-all duration-200'
-            >
-              Adquirir Licença
-            </button>
-            <button
-              onClick={() => scrollTo('performance')}
-              className='border border-white/10 text-gray-400 px-8 py-4 rounded-full text-base cursor-pointer hover:border-white/20 hover:text-white transition-all duration-200'
-            >
+            <Button onClick={() => scrollTo('hire')}>Adquirir Licença</Button>
+
+            <Button variant='secondary' onClick={() => scrollTo('performance')}>
               Ver resultados →
-            </button>
+            </Button>
           </motion.div>
 
           <motion.div
@@ -190,7 +184,7 @@ function App() {
         <div className='max-w-6xl mx-auto'>
           <Chip label='RESULTADOS 2025' />
 
-          <div className='grid md:grid-cols-2 gap-6 mt-10 items-stretch'>
+          <div className='grid gap-6 mt-10 items-stretch'>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -537,19 +531,13 @@ function App() {
           </p>
 
           <div className='flex flex-wrap justify-center gap-4'>
-            <button
-              onClick={() => scrollTo('hire')}
-              className='bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 hover:-translate-y-0.5 transition-all duration-200'
-            >
+            <Button onClick={() => scrollTo('hire')}>
               Adquirir Licença Agora
-            </button>
+            </Button>
 
-            <button
-              onClick={() => scrollTo('pricing')}
-              className='border border-white/10 text-gray-400 px-8 py-4 rounded-full text-base cursor-pointer hover:border-white/20 hover:text-white transition-all duration-200'
-            >
+            <Button variant='secondary' onClick={() => scrollTo('pricing')}>
               Ver planos
-            </button>
+            </Button>
           </div>
 
           <p className='text-[0.75rem] text-gray-600 mt-5'>

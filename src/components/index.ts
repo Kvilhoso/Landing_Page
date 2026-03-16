@@ -1,5 +1,6 @@
 export { default as AnimatedSection } from './AnimatedSection';
 export { default as Benefit } from './Benefit';
+export { default as Button } from './Button';
 export { default as Chip } from './Chip';
 export { default as Feature } from './Feature';
 export { default as Header } from './Header';
