@@ -1,122 +1,109 @@
-import { memo, useState } from 'react';
-import { ChevronRight, Menu, X } from 'lucide-react';
+import { memo, useCallback, useMemo, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scrollTo } from '@/utils';
 import { LOGO_CIRCLE } from '@/config';
+import { TABS } from '@/constants';
+import { Button } from './components';
 
 function Header() {
-  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  function onMenu(): void {
-    setIsOpenMenu(!isOpenMenu);
-  }
+  const onGoTo = useCallback(
+    (id: string): void => {
+      const wasOpen = isOpen;
+      setIsOpen(false);
+      setTimeout(() => scrollTo(id), wasOpen ? 300 : 0);
+    },
+    [isOpen],
+  );
 
-  function onHideByMenu(): void {
-    setIsOpenMenu(false);
+  const renderIcon = useMemo(
+    () =>
+      isOpen ? (
+        <X className='size-10 text-white hover:text-gray-300' />
+      ) : (
+        <Menu className='size-10 text-white hover:text-gray-300' />
+      ),
+    [isOpen],
+  );
 
-    setTimeout(() => scrollTo('hire'), 300);
-  }
+  const renderMobileButtons = useMemo(
+    () =>
+      TABS.map(tab => (
+        <Button
+          layout='mobile'
+          key={tab.id}
+          disabled={tab.disabled}
+          onClick={() => onGoTo(tab.id)}
+        >
+          {tab.label}
+        </Button>
+      )),
+    [onGoTo],
+  );
 
-  function onHideByWhoWeAre(): void {
-    setIsOpenMenu(false);
-
-    setTimeout(() => scrollTo('who-are-we'), 300);
-  }
+  const renderDesktopButtons = useMemo(
+    () =>
+      TABS.filter(tab => !tab.disabled).map(tab => (
+        <Button
+          layout='desktop'
+          outlined={tab.id !== 'hire'}
+          key={tab.id}
+          onClick={() => onGoTo(tab.id)}
+        >
+          {tab.label}
+        </Button>
+      )),
+    [onGoTo],
+  );
 
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className='backdrop-blur-2xl fixed md:top-6 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-full md:w-11/12 max-w-6xl'
+      className='backdrop-blur-2xl fixed lg:rounded-full lg:top-6 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-50 w-full lg:w-11/12 max-w-6xl'
     >
-      <nav className='bg-white/5 md:rounded-full px-8 py-4 md:shadow-2xl md:border md:border-white/10'>
+      <nav className='bg-white/5 lg:rounded-full px-8 py-4 lg:shadow-2xl lg:border lg:border-white/10'>
         <div className='flex justify-between items-center'>
           <div
-            className='group flex gap-2 text-xl font-semibold'
-            onClick={() => scrollTo('main')}
+            className='group flex gap-2 items-center text-xl font-semibold cursor-pointer'
+            onClick={() => onGoTo('main')}
           >
             <img
               src={LOGO_CIRCLE}
               alt='projeKt Rage Logo'
-              className='block size-10 rounded-full md:hidden cursor-pointer group-hover:opacity-70 transition-all duration-200'
+              className='block size-10 rounded-full lg:hidden cursor-pointer group-hover:opacity-70 transition-all duration-200'
             />
-
             <button className='text-white cursor-pointer group-hover:text-gray-300 transition-colors duration-200'>
               projeKt Rage
             </button>
           </div>
 
-          <div className='flex gap-8 items-center'>
-            <button
-              onClick={() => scrollTo('who-are-we')}
-              className='text-gray-300 hidden md:block hover:text-white transition-colors duration-200 text-sm cursor-pointer'
-            >
-              Quem somos
-            </button>
+          <div className='flex gap-6 items-center'>
+            {renderDesktopButtons}
 
             <button
-              onClick={() => scrollTo('hire')}
-              className='bg-white text-black px-6 py-2.5 rounded-full hidden md:block hover:bg-gray-100 transition-all duration-200 text-sm font-medium cursor-pointer'
+              className='block lg:hidden transition-all duration-200 cursor-pointer'
+              onClick={() => setIsOpen(prev => !prev)}
             >
-              Contratar
-            </button>
-
-            <button
-              className='block md:hidden transition-all duration-200 cursor-pointer'
-              onClick={onMenu}
-            >
-              {isOpenMenu ? (
-                <X className='size-10 text-white hover:text-gray-300' />
-              ) : (
-                <Menu className='size-10 text-white hover:text-gray-300' />
-              )}
+              {renderIcon}
             </button>
           </div>
         </div>
       </nav>
 
       <AnimatePresence>
-        {isOpenMenu && (
+        {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className='overflow-hidden md:hidden flex flex-col bg-white/5'
+            className='overflow-hidden lg:hidden flex flex-col bg-white/5'
           >
-            <button
-              className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
-              onClick={onHideByWhoWeAre}
-            >
-              <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
-                <span>Quem somos</span>
-
-                <ChevronRight className='size-5 text-gray-300 group-hover:text-white transition-colors duration-200' />
-              </div>
-            </button>
-
-            <button
-              className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
-              onClick={onHideByMenu}
-            >
-              <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
-                <span>Contratar</span>
-
-                <ChevronRight className='size-5 text-gray-300 group-hover:text-white transition-colors duration-200' />
-              </div>
-            </button>
-
-            <button
-              className='w-full px-8 py-4 text-gray-300 cursor-pointer disabled:cursor-not-allowed disabled:text-gray-500'
-              disabled
-            >
-              <div className='flex w-full justify-between gap-2'>
-                <span>Suporte</span>
-
-                <ChevronRight className='size-5 text-gray-500 cursor-not-allowed' />
-              </div>
-            </button>
+            {renderMobileButtons}
           </motion.div>
         )}
       </AnimatePresence>
