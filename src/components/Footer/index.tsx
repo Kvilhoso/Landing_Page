@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { onContact, scrollTo } from '@/utils';
+import { contact, scrollTo } from '@/utils';
 
 const currentYear = new Date().getFullYear();
 
@@ -34,10 +34,8 @@ function Footer() {
                 </li>
                 <li>
                   <button
-                    onClick={onContact}
+                    onClick={() => scrollTo('hire')}
                     className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
-                    // Remove disabled in the future
-                    disabled
                   >
                     Contratar
                   </button>
@@ -54,7 +52,7 @@ function Footer() {
                   <button
                     rel='noopener noreferrer'
                     className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
-                    onClick={onContact}
+                    onClick={contact}
                     // Remove disabled in the future
                     disabled
                   >

@@ -8,7 +8,7 @@ import {
   Header,
   PricingCard,
 } from './components';
-import { onContact, scrollTo } from './utils';
+import { contact, scrollTo } from './utils';
 import { PLANS } from './constants';
 
 function App() {
@@ -287,9 +287,7 @@ function App() {
               <button
                 rel='noopener noreferrer'
                 className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200'
-                onClick={onContact}
-                // Remove disabled in the future
-                disabled
+                onClick={contact}
               >
                 Contratar
               </button>
@@ -302,8 +300,7 @@ function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='relative'
             >
-              <div className='aspect-video rounded-2xl overflow-hidden border border-white/10'>
-                {/* Add video in the future */}
+              <div className='aspect-video rounded-2xl overflow-hidden border border-white/10 relative'>
                 <video
                   className='w-full h-full object-cover bg-zinc-900'
                   controls
@@ -312,6 +309,13 @@ function App() {
                   <source src='seu_video_aqui.mp4' type='video/mp4' />
                   Seu navegador não suporta vídeos.
                 </video>
+
+                <span
+                  className='absolute top-4 right-4 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full shadow-lg z-10'
+                  style={{ pointerEvents: 'none' }}
+                >
+                  em breve
+                </span>
               </div>
             </motion.div>
           </div>

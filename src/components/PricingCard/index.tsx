@@ -1,6 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Check } from 'lucide-react';
 import type { PricingCardProps } from '@/@types';
+import { contact } from '@/utils';
 
 function PricingCard(props: PricingCardProps) {
   const {
@@ -88,22 +89,19 @@ function PricingCard(props: PricingCardProps) {
           )}
         </div>
 
-        {/* Add mb-8 when button is visible in the future */}
-        <ul className='space-y-4'>{renderFeatures}</ul>
+        <ul className='space-y-4 mb-8'>{renderFeatures}</ul>
       </div>
 
-      {/* In the future this button must be uncommented */}
-      {/*
-        <button
-          className={`w-full py-4 rounded-full text-base font-medium transition-all duration-200 cursor-pointer ${
-            isHighlight
-              ? 'bg-black text-white hover:bg-gray-800'
-              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-          }`}
-        >
-          Contratar
-        </button>
-      */}
+      <button
+        className={`w-full py-4 rounded-full text-base font-medium transition-all duration-200 cursor-pointer ${
+          isHighlight
+            ? 'bg-black text-white hover:bg-gray-800'
+            : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+        }`}
+        onClick={contact}
+      >
+        Contratar
+      </button>
     </div>
   );
 }
