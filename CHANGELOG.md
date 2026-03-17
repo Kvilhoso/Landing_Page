@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.2.1...v1.3.0) (2026-03-17)
+
+
+### Features
+
+* add redirect to WhatsApp ([5f9d2f1](https://github.com/Kvilhoso/Landing_Page/commit/5f9d2f119302e311245c6a5ba5475f6952aa8827))
+
 ## [1.2.1](https://github.com/Kvilhoso/Landing_Page/compare/v1.2.0...v1.2.1) (2026-03-02)
 
 
