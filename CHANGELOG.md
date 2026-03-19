@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.3.0...v1.4.0) (2026-03-19)
+
+
+### Features
+
+* add legal pages ([b31829f](https://github.com/Kvilhoso/Landing_Page/commit/b31829f87e0539dc35eb0c4fea295d9b1f195c04))
+
 # [1.3.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.2.1...v1.3.0) (2026-03-17)
 
 
