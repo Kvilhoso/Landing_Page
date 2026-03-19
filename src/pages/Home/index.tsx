@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { TrendingUp, Shield, Users, BarChart3, HandCoins } from 'lucide-react';
+import { BarChart3, HandCoins, Shield, TrendingUp, Users } from 'lucide-react';
 import {
   AnimatedSection,
   Benefit,
@@ -7,13 +7,13 @@ import {
   Footer,
   Header,
   PricingCard,
-} from './components';
-import { contact, scrollTo } from './utils';
-import { PLANS } from './constants';
+} from '@/components';
+import { contact, scrollTo } from '@/utils';
+import { PLANS } from '@/constants';
 
-function App() {
+export function Home() {
   return (
-    <div id='main' className='min-h-screen bg-black text-white'>
+    <main id='main' className='min-h-screen bg-black text-white'>
       <Header />
 
       <AnimatedSection className='pt-40 pb-32 px-6'>
@@ -75,7 +75,7 @@ function App() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'>
+      <AnimatedSection className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-20'>
             <h2 className='text-4xl md:text-5xl font-light mb-6'>
@@ -198,7 +198,7 @@ function App() {
 
       <AnimatedSection
         id='pricing'
-        className='py-32 px-6 bg-gradient-to-b from-black to-zinc-900'
+        className='py-32 px-6 bg-linear-to-b from-black to-zinc-900'
       >
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-20'>
@@ -260,7 +260,7 @@ function App() {
 
       <AnimatedSection
         id='hire'
-        className='py-32 px-6 bg-gradient-to-b from-zinc-900 to-black'
+        className='py-32 px-6 bg-linear-to-b from-zinc-900 to-black'
       >
         <div className='max-w-5xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-12 items-center'>
@@ -285,7 +285,6 @@ function App() {
                 sobre como adquirir e configurar seu algoritmo.
               </p>
               <button
-                rel='noopener noreferrer'
                 className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200'
                 onClick={contact}
               >
@@ -323,8 +322,6 @@ function App() {
       </AnimatedSection>
 
       <Footer />
-    </div>
+    </main>
   );
 }
-
-export default App;

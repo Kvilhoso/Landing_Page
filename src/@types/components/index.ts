@@ -2,3 +2,4 @@ export * from './AnimatedSection';
 export * from './Benefit';
 export * from './Feature';
 export * from './PricingCard';
+export * from './Topic';

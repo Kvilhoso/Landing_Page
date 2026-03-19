@@ -1,9 +1,26 @@
 import { memo } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import { contact, scrollTo } from '@/utils';
 
 const currentYear = new Date().getFullYear();
 
 function Footer() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+
+  function onGoToOtherPage(routeName: string): void {
+    navigate(routeName);
+
+    setTimeout(() => scrollTo('main'), 150);
+  }
+
+  function onGoTo(id: string): void {
+    if (!isHome) navigate('/');
+
+    setTimeout(() => scrollTo(id), 300);
+  }
+
   return (
     <footer className='py-20 px-6 border-t border-white/10'>
       <div className='max-w-5xl mx-auto'>
@@ -18,24 +35,24 @@ function Footer() {
             </p>
           </div>
 
-          <div className='grid grid-cols-2 gap-8'>
+          <div className='grid md:grid-cols-3 gap-8'>
             <div>
-              <h3 className='text-sm font-medium mb-4 text-gray-300'>
+              <h3 className='text-sm text-left font-medium mb-4 text-gray-300'>
                 Navegação
               </h3>
               <ul className='space-y-3'>
                 <li>
                   <button
-                    onClick={() => scrollTo('who-are-we')}
-                    className='text-gray-400 hover:text-white transition-colors text-sm cursor-pointer'
+                    onClick={() => onGoTo('who-are-we')}
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white transition-colors'
                   >
                     Quem somos
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollTo('hire')}
-                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    onClick={() => onGoTo('hire')}
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
                   >
                     Contratar
                   </button>
@@ -44,19 +61,53 @@ function Footer() {
             </div>
 
             <div>
-              <h3 className='text-sm font-medium mb-4 text-gray-300'>
+              <h3 className='text-sm text-left font-medium mb-4 text-gray-300'>
                 Contato
               </h3>
               <ul className='space-y-3'>
                 <li>
                   <button
                     rel='noopener noreferrer'
-                    className='text-gray-400 text-sm cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
                     onClick={contact}
                     // Remove disabled in the future
                     disabled
                   >
                     Suporte
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className='text-sm text-left font-medium mb-4 text-gray-300'>
+                Legal
+              </h3>
+              <ul className='space-y-3'>
+                <li>
+                  <button
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    onClick={() => onGoToOtherPage('/terms-of-use')}
+                  >
+                    Termos de uso
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    onClick={() => onGoToOtherPage('/privacy-policies')}
+                  >
+                    Política de privacidade
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
+                    onClick={() => onGoToOtherPage('/risk-warning')}
+                  >
+                    Aviso de risco
                   </button>
                 </li>
               </ul>

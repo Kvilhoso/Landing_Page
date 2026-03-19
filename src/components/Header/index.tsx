@@ -1,4 +1,5 @@
 import { memo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import { ChevronRight, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scrollTo } from '@/utils';
@@ -7,20 +8,28 @@ import { LOGO_CIRCLE } from '@/config';
 function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+
   function onMenu(): void {
     setIsOpenMenu(!isOpenMenu);
   }
 
-  function onHideByMenu(): void {
+  function onGoTo(id: string): void {
     setIsOpenMenu(false);
 
-    setTimeout(() => scrollTo('hire'), 300);
+    if (!isHome) navigate('/');
+
+    setTimeout(() => scrollTo(id), 300);
   }
 
-  function onHideByWhoWeAre(): void {
+  function onGoToHome(): void {
     setIsOpenMenu(false);
 
-    setTimeout(() => scrollTo('who-are-we'), 300);
+    navigate('/');
+
+    setTimeout(() => scrollTo('main'), 300);
   }
 
   return (
@@ -34,7 +43,7 @@ function Header() {
         <div className='flex justify-between items-center'>
           <div
             className='group flex gap-2 text-xl font-semibold'
-            onClick={() => scrollTo('main')}
+            onClick={onGoToHome}
           >
             <img
               src={LOGO_CIRCLE}
@@ -49,14 +58,14 @@ function Header() {
 
           <div className='flex gap-8 items-center'>
             <button
-              onClick={() => scrollTo('who-are-we')}
+              onClick={() => onGoTo('who-are-we')}
               className='text-gray-300 hidden md:block hover:text-white transition-colors duration-200 text-sm cursor-pointer'
             >
               Quem somos
             </button>
 
             <button
-              onClick={() => scrollTo('hire')}
+              onClick={() => onGoTo('hire')}
               className='bg-white text-black px-6 py-2.5 rounded-full hidden md:block hover:bg-gray-100 transition-all duration-200 text-sm font-medium cursor-pointer'
             >
               Contratar
@@ -87,7 +96,7 @@ function Header() {
           >
             <button
               className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
-              onClick={onHideByWhoWeAre}
+              onClick={() => onGoTo('who-are-we')}
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
                 <span>Quem somos</span>
@@ -98,7 +107,7 @@ function Header() {
 
             <button
               className='group w-full px-8 py-4 transition-colors duration-200 cursor-pointer'
-              onClick={onHideByMenu}
+              onClick={() => onGoTo('hire')}
             >
               <div className='flex w-full justify-between gap-2 text-gray-300 group-hover:text-white transition-colors duration-200'>
                 <span>Contratar</span>

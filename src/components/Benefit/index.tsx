@@ -7,7 +7,7 @@ function Benefit(props: BenefitProps) {
 
   return (
     <div className='flex items-start gap-4'>
-      <CheckCircle className='w-6 h-6 text-white mt-1 flex-shrink-0' />
+      <CheckCircle className='w-6 h-6 text-white mt-1 shrink-0' />
 
       <div>
         <h3 className='text-lg font-medium mb-2'>{title}</h3>
