@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Kvilhoso/Landing_Page/compare/v1.4.0...v1.4.1) (2026-05-09)
+
+
+### Bug Fixes
+
+* update CNAME ([102c4b5](https://github.com/Kvilhoso/Landing_Page/commit/102c4b5b0f83eda6bad760c50882ede72f461987))
+
 # [1.4.0](https://github.com/Kvilhoso/Landing_Page/compare/v1.3.0...v1.4.0) (2026-03-19)
 
 
