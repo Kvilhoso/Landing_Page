@@ -37,7 +37,7 @@ jobs:
 
       - name: Add CNAME and .nojekyll to dist
         run: |
-          echo "Kvilhoso.github.io" > dist/CNAME
+          echo "www.projektrage.com.br" > dist/CNAME
           touch dist/.nojekyll
 
       - name: Upload artifact
