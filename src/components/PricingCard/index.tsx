@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Check } from 'lucide-react';
 import type { PricingCardProps } from '@/@types';
-import { contact } from '@/utils';
+import { scrollTo } from '@/utils';
 
 function PricingCard(props: PricingCardProps) {
   const {
@@ -98,7 +98,7 @@ function PricingCard(props: PricingCardProps) {
             ? 'bg-black text-white hover:bg-gray-800'
             : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
         }`}
-        onClick={contact}
+        onClick={() => scrollTo('hire')}
       >
         Contratar
       </button>

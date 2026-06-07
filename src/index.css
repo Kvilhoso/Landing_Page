@@ -4,7 +4,8 @@
   font-family: 'Montreal Thin';
   font-style: normal;
   font-weight: normal;
-  src: local('Montreal Thin'),
+  src:
+    local('Montreal Thin'),
     url('./assets/fonts/MontrealThin.ttf') format('truetype');
 }
 
@@ -12,7 +13,8 @@
   font-family: 'Montreal Light';
   font-style: normal;
   font-weight: normal;
-  src: local('Montreal Light'),
+  src:
+    local('Montreal Light'),
     url('./assets/fonts/MontrealLight.ttf') format('truetype');
 }
 
@@ -20,7 +22,8 @@
   font-family: 'Montreal Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Montreal Regular'),
+  src:
+    local('Montreal Regular'),
     url('./assets/fonts/MontrealRegular.ttf') format('truetype');
 }
 
@@ -28,7 +31,8 @@
   font-family: 'Montreal Medium';
   font-style: normal;
   font-weight: normal;
-  src: local('Montreal Medium'),
+  src:
+    local('Montreal Medium'),
     url('./assets/fonts/MontrealMedium.ttf') format('truetype');
 }
 
@@ -36,7 +40,8 @@
   font-family: 'Montreal Bold';
   font-style: normal;
   font-weight: normal;
-  src: local('Montreal Bold'),
+  src:
+    local('Montreal Bold'),
     url('./assets/fonts/MontrealBold.ttf') format('truetype');
 }
 
@@ -49,6 +54,28 @@ body {
   background-color: #000000;
 
   font-family: 'Montreal Regular', sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  border-color: rgb(255 255 255 / 0.15);
+  -webkit-box-shadow: 0 0 0 1000px rgb(0 0 0 / 0.4) inset;
+  box-shadow: 0 0 0 1000px rgb(0 0 0 / 0.4) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-moz-autofill,
+textarea:-moz-autofill {
+  color: #ffffff;
+  caret-color: #ffffff;
+  border-color: rgb(255 255 255 / 0.15);
+  box-shadow: 0 0 0 1000px rgb(0 0 0 / 0.4) inset;
 }
 
 @theme {

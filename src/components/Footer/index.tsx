@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { contact, scrollTo } from '@/utils';
+import { scrollTo } from '@/utils';
 
 const currentYear = new Date().getFullYear();
 
@@ -69,7 +69,7 @@ function Footer() {
                   <button
                     rel='noopener noreferrer'
                     className='text-gray-400 text-sm text-left cursor-pointer hover:text-white disabled:cursor-not-allowed disabled:text-gray-400 transition-colors'
-                    onClick={contact}
+                    onClick={() => onGoTo('hire')}
                     // Remove disabled in the future
                     disabled
                   >

@@ -8,7 +8,7 @@ import {
   Header,
   PricingCard,
 } from '@/components';
-import { contact, scrollTo } from '@/utils';
+import { scrollTo } from '@/utils';
 import { PLANS } from '@/constants';
 
 export function Home() {
@@ -284,12 +284,6 @@ export function Home() {
                 Entre em contato conosco e receba orientações personalizadas
                 sobre como adquirir e configurar seu algoritmo.
               </p>
-              <button
-                className='inline-block bg-white text-black px-8 py-4 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200'
-                onClick={contact}
-              >
-                Contratar
-              </button>
             </motion.div>
 
             <motion.div
@@ -299,23 +293,81 @@ export function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='relative'
             >
-              <div className='aspect-video rounded-2xl overflow-hidden border border-white/10 relative'>
-                <video
-                  className='w-full h-full object-cover bg-zinc-900'
-                  controls
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect fill='%23000000' width='800' height='450'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFFFFF' font-size='32' font-family='system-ui, sans-serif' dy='.3em'%Algoritmo em Ação%3C/text%3E%3C/svg%3E"
-                >
-                  <source src='seu_video_aqui.mp4' type='video/mp4' />
-                  Seu navegador não suporta vídeos.
-                </video>
+              <form className='rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 space-y-5'>
+                <div>
+                  <label
+                    htmlFor='name'
+                    className='block text-sm text-gray-300 mb-2 font-medium'
+                  >
+                    Nome
+                  </label>
+                  <input
+                    id='name'
+                    name='name'
+                    type='text'
+                    required
+                    className='w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-white/30'
+                    placeholder='Seu nome completo'
+                  />
+                </div>
 
-                <span
-                  className='absolute top-4 right-4 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full shadow-lg z-10'
-                  style={{ pointerEvents: 'none' }}
+                <div>
+                  <label
+                    htmlFor='email'
+                    className='block text-sm text-gray-300 mb-2 font-medium'
+                  >
+                    E-mail
+                  </label>
+                  <input
+                    id='email'
+                    name='email'
+                    type='email'
+                    required
+                    className='w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-white/30'
+                    placeholder='voce@exemplo.com'
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor='phone'
+                    className='block text-sm text-gray-300 mb-2 font-medium'
+                  >
+                    Telefone
+                  </label>
+                  <input
+                    id='phone'
+                    name='phone'
+                    type='tel'
+                    required
+                    className='w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-white/30'
+                    placeholder='(11) 99999-9999'
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor='message'
+                    className='block text-sm text-gray-300 mb-2 font-medium'
+                  >
+                    Mensagem (Opcional)
+                  </label>
+                  <textarea
+                    id='message'
+                    name='message'
+                    rows={4}
+                    className='w-full resize-none rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-white/30'
+                    placeholder='Escreva sua mensagem (opcional)'
+                  />
+                </div>
+
+                <button
+                  type='button'
+                  className='w-full bg-white text-black px-6 py-3 rounded-full text-base font-medium cursor-pointer hover:bg-gray-100 transition-all duration-200'
                 >
-                  em breve
-                </span>
-              </div>
+                  Entrar em contato
+                </button>
+              </form>
             </motion.div>
           </div>
         </div>
